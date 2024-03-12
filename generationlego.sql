@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 12, 2024 alle 10:46
+-- Creato il: Mar 12, 2024 alle 17:29
 -- Versione del server: 10.1.10-MariaDB
 -- Versione PHP: 5.6.15
 
@@ -123,17 +123,17 @@ INSERT INTO `playset` (`id`, `nome`, `id_brand`, `eta`, `numero_pezzi`, `prezzo`
 
 CREATE TABLE `utenti` (
   `id` int(11) NOT NULL,
-  `nome` varchar(50) NOT NULL,
-  `cognome` varchar(50) NOT NULL,
+  `nome` varchar(50) DEFAULT NULL,
+  `cognome` varchar(50) DEFAULT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `via` varchar(50) NOT NULL,
-  `citta` varchar(50) NOT NULL,
-  `provincia` varchar(2) NOT NULL,
-  `cap` varchar(5) NOT NULL,
-  `mail` varchar(50) NOT NULL,
-  `telefono` varchar(12) NOT NULL,
-  `data_di_nascita` date NOT NULL,
+  `via` varchar(50) DEFAULT NULL,
+  `citta` varchar(50) DEFAULT NULL,
+  `provincia` varchar(2) DEFAULT NULL,
+  `cap` varchar(5) DEFAULT NULL,
+  `mail` varchar(50) DEFAULT NULL,
+  `telefono` varchar(12) DEFAULT NULL,
+  `data_di_nascita` date DEFAULT NULL,
   `profilo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -142,7 +142,7 @@ CREATE TABLE `utenti` (
 --
 
 INSERT INTO `utenti` (`id`, `nome`, `cognome`, `username`, `password`, `via`, `citta`, `provincia`, `cap`, `mail`, `telefono`, `data_di_nascita`, `profilo`) VALUES
-(1, 'admin', 'admin', 'admin', 'Bello1$', 'admin', 'admin', 'ad', 'admin', 'admin', 'admin', '2024-03-12', 'admin');
+(1, '', '', 'admin', 'Bello1$', '', '', '', '', '', '', '2024-03-12', 'admin');
 
 --
 -- Indici per le tabelle scaricate
@@ -158,7 +158,8 @@ ALTER TABLE `brand`
 -- Indici per le tabelle `ordini`
 --
 ALTER TABLE `ordini`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_utente` (`id_utente`);
 
 --
 -- Indici per le tabelle `ordini_playset`
@@ -207,6 +208,12 @@ ALTER TABLE `utenti`
 --
 -- Limiti per le tabelle scaricate
 --
+
+--
+-- Limiti per la tabella `ordini`
+--
+ALTER TABLE `ordini`
+  ADD CONSTRAINT `utente` FOREIGN KEY (`id`) REFERENCES `utenti` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `ordini_playset`
