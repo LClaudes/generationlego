@@ -56,4 +56,12 @@ public class Ordini {
     public void setUtenti(Utenti utenti) {
         this.utenti = utenti;
     }
+
+    public List<Playset> getPlayset() {
+        return playset;
+    }
+
+    public void setPlayset(List<Playset> playset) {
+        this.playset = playset;
+    }
 }
