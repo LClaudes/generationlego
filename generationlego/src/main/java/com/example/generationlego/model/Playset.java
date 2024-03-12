@@ -38,8 +38,8 @@ public class Playset
     @Column
     private int scorte;
     @ManyToMany(cascade = CascadeType.REFRESH,fetch = FetchType.EAGER)
-    @JoinTable(name="ordini_playset",joinColumns = @JoinColumn(name ="id_ordine", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name="id_playset", referencedColumnName = "id"))
+   @JoinTable(name="ordini_playset",joinColumns = @JoinColumn(name ="id_playset", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name="id_ordine", referencedColumnName = "id"))
     private List<Ordini> ordini = new ArrayList<>();
 
     public int getId() {

@@ -33,7 +33,7 @@ public class Utenti {
     private String mail;
     @Column
     private String telefono;
-    @Column
+    @Column(name="data_di_nascita")
     private LocalDate data;
     @Column
     private String profilo;

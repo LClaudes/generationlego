@@ -18,7 +18,7 @@ public class IndexController {
     @GetMapping
     public String getPage(Model model){
         List<Playset> playset = playsetService.getPlayset();
-        model.addAttribute("playset",playset);
+        model.addAttribute("playsets",playset);
         return "index";
 
     }

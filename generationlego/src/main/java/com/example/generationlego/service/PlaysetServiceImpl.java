@@ -4,12 +4,13 @@ import com.example.generationlego.dao.PlaysetDao;
 import com.example.generationlego.model.Playset;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
+@Service
 public class PlaysetServiceImpl implements PlaysetService{
 
     @Autowired

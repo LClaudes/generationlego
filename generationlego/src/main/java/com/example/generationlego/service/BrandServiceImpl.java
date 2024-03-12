@@ -3,9 +3,10 @@ package com.example.generationlego.service;
 import com.example.generationlego.dao.BrandDao;
 import com.example.generationlego.model.Brand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class BrandServiceImpl implements BrandService{
     @Autowired
     private BrandDao brandDao;
