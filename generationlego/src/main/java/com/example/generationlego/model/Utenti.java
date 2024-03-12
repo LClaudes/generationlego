@@ -2,6 +2,7 @@ package com.example.generationlego.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -31,7 +32,7 @@ public class Utenti {
     @Column
     private String telefono;
     @Column
-    private Date data;
+    private LocalDate data;
     @Column
     private String profilo;
 
@@ -123,11 +124,11 @@ public class Utenti {
         this.telefono = telefono;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
