@@ -75,8 +75,8 @@
     <section class="container margine-top-4">
         <h2 class="text-center margine-bottom-4">Prodotti in Evidenza</h2>
         <div class="row">
-        <div class="col-md-4">
-            <div th:each="playset:${playsets}"class="card mx-auto">
+        <div th:each="playset:${playsets}" class="col-md-4">
+            <div class="card mx-auto">
                 <img th:src="@{playset.immagine}" class="card-img-top" alt="Immagine Prodotto">
                 <div class="card-body">
                     <h5 th:text="${playset.nome}"class="card-title">Prodotto 1</h5>
