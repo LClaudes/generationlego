@@ -3,7 +3,9 @@ package com.example.generationlego.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="ordini")
@@ -18,6 +20,10 @@ public class Ordini {
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name="id_utente",referencedColumnName = "id")
     private  Utenti utenti ;
+    @ManyToMany(cascade = CascadeType.REFRESH,fetch = FetchType.EAGER)
+    @JoinTable(name="ordini_playset",joinColumns = @JoinColumn(name ="id_ordine", referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name="id_playset", referencedColumnName = "id"))
+    private List<Playset> playset = new ArrayList<>();
 
     public int getId() {
         return id;

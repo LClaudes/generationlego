@@ -2,6 +2,9 @@ package com.example.generationlego.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "playset")
 public class Playset
@@ -34,6 +37,10 @@ public class Playset
 
     @Column
     private int scorte;
+    @ManyToMany(cascade = CascadeType.REFRESH,fetch = FetchType.EAGER)
+    @JoinTable(name="ordini_playset",joinColumns = @JoinColumn(name ="id_ordine", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name="id_playset", referencedColumnName = "id"))
+    private List<Ordini> ordini = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -105,5 +112,13 @@ public class Playset
 
     public void setScorte(int scorte) {
         this.scorte = scorte;
+    }
+
+    public List<Ordini> getOrdini() {
+        return ordini;
+    }
+
+    public void setOrdini(List<Ordini> ordini) {
+        this.ordini = ordini;
     }
 }
