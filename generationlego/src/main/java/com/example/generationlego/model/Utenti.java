@@ -3,7 +3,9 @@ package com.example.generationlego.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="utenti")
@@ -35,6 +37,9 @@ public class Utenti {
     private LocalDate data;
     @Column
     private String profilo;
+    @OneToMany (mappedBy = "utenti",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER, orphanRemoval = true)
+
+    private List<Ordini> ordini = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -138,5 +143,13 @@ public class Utenti {
 
     public void setProfilo(String profilo) {
         this.profilo = profilo;
+    }
+
+    public List<Ordini> getOrdini() {
+        return ordini;
+    }
+
+    public void setOrdini(List<Ordini> ordini) {
+        this.ordini = ordini;
     }
 }
