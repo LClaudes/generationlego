@@ -1,4 +1,7 @@
 package com.example.generationlego.dao;
 
-public interface BrandDao {
+import com.example.generationlego.model.Brand;
+import org.springframework.data.repository.CrudRepository;
+
+public interface BrandDao extends CrudRepository<Brand, Integer> {
 }
