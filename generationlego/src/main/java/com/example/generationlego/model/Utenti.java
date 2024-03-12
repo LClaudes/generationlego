@@ -14,7 +14,7 @@ public class Utenti {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
-    private String name;
+    private String nome;
     @Column
     private String cognome;
     @Column
@@ -49,12 +49,12 @@ public class Utenti {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCognome() {

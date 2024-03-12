@@ -2,6 +2,9 @@ package com.example.generationlego.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "brand")
 public class Brand
@@ -12,6 +15,9 @@ public class Brand
 
     @Column
     private String nome;
+    @OneToMany (mappedBy = "brand",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER, orphanRemoval = true)
+
+    private List<Playset> playset = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -27,5 +33,13 @@ public class Brand
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<Playset> getPlayset() {
+        return playset;
+    }
+
+    public void setPlayset(List<Playset> playset) {
+        this.playset = playset;
     }
 }
