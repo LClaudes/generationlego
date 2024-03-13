@@ -1,8 +1,12 @@
 package com.example.generationlego.controller;
 import com.example.generationlego.model.Brand;
+import com.example.generationlego.model.Ordini;
 import com.example.generationlego.model.Playset;
+import com.example.generationlego.model.Utenti;
 import com.example.generationlego.service.BrandService;
+import com.example.generationlego.service.OrdineService;
 import com.example.generationlego.service.PlaysetService;
+import com.example.generationlego.service.UtenteService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +25,10 @@ import java.util.Map;
 @RequestMapping("/riservataadmin")
 public class RiservataAdminController
 {
+    @Autowired
+    private UtenteService utenteService;
+    @Autowired
+    private OrdineService ordineService;
     @Autowired
     private PlaysetService playsetService;
 
@@ -41,6 +51,12 @@ public class RiservataAdminController
             return "redirect:/loginutente";
            }
         else{
+            List<Utenti> utenti = utenteService.getUtenti();
+            model.addAttribute("utenti", utenti);
+            List<Utenti> utenti2 = utenteService.getByProfilo("user");
+            model.addAttribute("utenti2", utenti2);
+            List<Ordini> ordini = ordineService.getOrdini();
+            model.addAttribute("ordini", ordini);
         List<Playset> playset = playsetService.getPlayset();
         List<Brand> brand = brandService.getBrand();
         if(errori == null)
@@ -87,4 +103,11 @@ public class RiservataAdminController
         playsetService.cancellaPlayset(id);
         return "redirect:/riservataadmin";
     }
+    /*@GetMapping("/visualizzautenti")
+    public String visualizzaUtenti(Model model)
+    {
+        List<Utenti> utenti = utenteService.getUtenti();
+        model.addAttribute("utenti", utenti);
+        return "redirect:/riservataadmin";
+    }*/
 }

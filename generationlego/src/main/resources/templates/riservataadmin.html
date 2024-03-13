@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Riservata Admin</title>
 </head>
 <body>
-
+    <div th:each="utente : ${utenti}">
+        <p th:text="${utente.nome}"></p>
+        <p th:text="${utente.profilo}"></p>
+    </div>
+    <div th:each="utente : ${utenti2}">
+        <p th:text="${utente.nome}"></p>
+        <p th:text="${utente.profilo}"></p>
+    </div>
+    <h4 th:if="${ordini == null}">Non hai effettuato ordini</h4>
 </body>
 </html>

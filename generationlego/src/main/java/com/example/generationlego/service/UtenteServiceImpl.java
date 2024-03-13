@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 @Service
 public class UtenteServiceImpl implements UtenteService {
@@ -62,6 +63,17 @@ public class UtenteServiceImpl implements UtenteService {
         }
 
 
+    }
+
+    @Override
+    public List<Utenti> getUtenti() {
+        List<Utenti> utenti = (List<Utenti>) utenteDao.findAll();
+        return utenti;
+    }
+
+    @Override
+    public List<Utenti> getByProfilo(String profilo) {
+        return (List<Utenti>) utenteDao.findByProfilo(profilo);
     }
 
 

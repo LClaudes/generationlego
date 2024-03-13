@@ -33,4 +33,10 @@ public class OrdineServiceImpl implements OrdineService{
             session.removeAttribute("carrello");
         }
     }
+
+    @Override
+    public List<Ordini> getOrdini() {
+        List<Ordini> ordini = (List<Ordini>) ordiniDao.findAll();
+        return ordini;
+    }
 }
