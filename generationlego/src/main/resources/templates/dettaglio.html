@@ -9,7 +9,8 @@
 <h2 th:text="${playset.nome}"></h2>
 <h3 th:text="${#numbers.formatDecimal(playset.prezzo, 0, 'POINT', 2, 'COMMA')}"></h3>
 <ul>
-    <li th:text="${playset.brand.descrizione}"></li>
+    <li th:text="${playset.brand}"></li>
+
 </ul>
 <a th:href="@{/dettaglio/aggiungi(id=${playset.id})}">Aggiungi al carrello</a>
 <p th:if="${result != null}"

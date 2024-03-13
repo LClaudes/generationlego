@@ -55,7 +55,7 @@
             <!-- Prima Card -->
             <div th:each="playset:${playsets}" class="col-md-4">
                 <div  class="card">
-                    <img  th:src="@{playset.immagine}" class="card-img-top" alt="Immagine Prodotto">
+                    <img th:src="@{'image/playset_' + ${playset.id} + '.jpg'}" class="card-img-top" alt="Immagine Prodotto">
                     <div class="card-body">
                         <h5 th:text="${playset.nome}" class="card-title">Prodotto 1</h5>
                         <p th:text="${playset.eta}" class="card-text">Descrizione del Prodotto 1.</p>
