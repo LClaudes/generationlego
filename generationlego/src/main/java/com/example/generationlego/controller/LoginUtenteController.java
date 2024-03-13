@@ -35,8 +35,6 @@ public class LoginUtenteController {
             HttpSession session
     )
     {
-        if(!utenteService.controlloLogin(username,password,session))
-            return "redirect:/loginutente?errore";
-        return "redirect:/riservatautente";
+        return utenteService.controlloLogin(username, password,session);
     }
 }

@@ -24,7 +24,7 @@ public class RiservataAdminController
     @Autowired
     private BrandService brandService;
 
-    private Playset playset;
+    private Playset playset1;
 
     private Map<String, String> errori;
 
@@ -36,7 +36,7 @@ public class RiservataAdminController
         List<Playset> playset = playsetService.getPlayset();
         List<Brand> brand = brandService.getBrand();
         if(errori == null)
-            playset = (List<Playset>) (id == null ? new Playset() : playsetService.getPlaysetById(id));
+           playset1 =  id == null ? new Playset() : playsetService.getPlaysetById(id);
         model.addAttribute("playset", playset);
         model.addAttribute("brand", brand);
         model.addAttribute("playset", playset);
@@ -57,18 +57,18 @@ public class RiservataAdminController
             @RequestParam("scorte") int scorte
     )
     {
-        Object risultatoValidazione = playsetService.validaPlayset(playset, nome, id_brand, eta, numero_pezzi, prezzo, descrizione);
+        Object risultatoValidazione = playsetService.validaPlayset(playset1, nome, id_brand, eta, numero_pezzi, prezzo, descrizione);
         // se abbiamo errori di validazione
         if(risultatoValidazione != null)
         {
-            playset = (Playset) ((Object[])risultatoValidazione)[0];
+            playset1 = (Playset) ((Object[])risultatoValidazione)[0];
             errori = (Map<String, String>) ((Object[])risultatoValidazione)[1];
             return "redirect:/riservataadmin";
         }
 
 
 
-        playsetService.registraPlayset(playset, nome, id_brand, eta, numero_pezzi, prezzo, descrizione, immagine, scorte);
+        playsetService.registraPlayset(playset1, nome, id_brand, eta, numero_pezzi, prezzo, descrizione, immagine, scorte);
         return "redirect:/riservataadmin";
     }
 

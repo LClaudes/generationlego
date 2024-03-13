@@ -15,16 +15,24 @@ public class UtenteServiceImpl implements UtenteService {
     @Autowired
     private UtenteDao utenteDao;
 
+
     @Override
-    public boolean controlloLogin(String username, String password, HttpSession session)
-    {
+    public String controlloLogin(String username, String password, HttpSession session) {
         Utenti utente = utenteDao.findByUsernameAndPassword(username, password);
-        if(utente != null)
-        {
+        if (utente != null) {
             session.setAttribute("utente", utente);
-            return true;
+            // Controlla il profilo dell'utente per decidere quale area riservata mostrare
+            if ("admin".equals(utente.getProfilo())) {
+                // Imposta un attributo di sessione per l'admin
+                session.setAttribute("isAdmin", true);
+                return "redirect:/riservataadmin"; // Oppure il path che preferisci per l'admin
+            } else if ("user".equals(utente.getProfilo())) {
+                // Imposta un attributo di sessione per l'utente
+                session.setAttribute("isUser", true);
+                return "redirect:/areariservatautente"; // Oppure il path che preferisci per l'utente
+            }
         }
-        return false;
+        return "redirect:/loginutente?errore"; // Oppure il path/view che preferisci in caso di fallimento dell'autenticazione
     }
 
     @Override
