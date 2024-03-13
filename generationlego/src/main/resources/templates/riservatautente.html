@@ -5,7 +5,57 @@
     <title>Title</title>
 </head>
 <body>
-<a th:href="@{/riservatautente/logout}">Logout</a>
+    <a th:href="@{/}">Torna in Home Page</a>
+    <a th:href="@{/riservatautente/logout}">Logout</a>
+    <h1 th:text="${user.username} + ' Questa è la tua area riservata'"></h1>
+    <h4 th:if="${carrello == null}">Non hai un carrello</h4>
+    <table th:if="${carrello != null}">
+        <tr th:each="playset : ${carrello}">
+            <td th:text="${playset.nome}"></td>
+            <td th:text="${playset.prezzo}"></td>
+            <td>
+                <a th:href="@{/riservatautente/rimuovi(id=${playset.id})}">
+                    Rimuovi Playset
+                </a>
+            </td>
+        </tr>
+    </table>
+    <h5 th:if="${carrello != null}" th:text="'Totale Carrello ' + ${totale}"></h5>
+    <a th:if="${carrello != null}" th:href="@{/riservatautente/invia}">Invia Ordine</a>
+    <p th:if="${send}">Ordine Inviato</p>
+    <hr>
+    <form th:object="${user}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{profilo}"> <!--IL PROFILO NON PUO' ESSERE NULL-->
+        <input type="text" th:field="*{nome}" placeholder="inserire nome" required>
+        <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+        <br>
+        <input type="text" th:field="*{cognome}" placeholder="inserire cognome" required>
+        <p th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></p>
+        <br>
+        <input type="text" th:field="*{username}" readonly>
+        <br>
+        <input type="text" th:field="*{password}" placeholder="scegli password" required
+               id="pwd">
+        <button type="button" onclick="mostra()">Mostra/Nascondi</button>
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+        <br>
+        <input type="submit" value="Modifica Dati">
+    </form>
+    <hr>
+    <table>
+        <tr th:each="ordine : ${user.ordini}">
+            <td th:text="${ordine.data}"></td>
+            <td th:text="${ordine.importo}"></td>
+            <td>
+                <table>
+                    <tr th:each="playset: ${ordine.playset}">
+                        <td th:text="${playset.nome}"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 
 </body>
 </html>
