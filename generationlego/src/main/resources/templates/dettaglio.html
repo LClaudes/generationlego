@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dettaglio Playset</title>
 </head>
 <body>
-
+<a th:href="@{/}">Torna a Catalogo</a>
+<h2 th:text="${playset.nome}"></h2>
+<h3 th:text="${#numbers.formatDecimal(playset.prezzo, 0, 'POINT', 2, 'COMMA')}"></h3>
+<ul>
+    <li th:text="${playset.brand.descrizione}"></li>
+</ul>
+<a th:href="@{/dettaglio/aggiungi(id=${playset.id})}">Aggiungi al carrello</a>
+<p th:if="${result != null}"
+   th:text="${result.equals('y') ? 'Playset Aggiunto' : 'Playset già presente'}"
+   th:style="${result.equals('y') ? 'color:green' : 'color:red'}"></p>
 </body>
 </html>
