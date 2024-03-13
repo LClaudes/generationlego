@@ -26,15 +26,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
     <h1>Home</h1>
-    <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#menuNavbar"
-            aria-controls="menuNavbar"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menuNavbar">
@@ -46,96 +38,53 @@
                 <a class="nav-link" href="profilo.html">Il Mio Profilo</a>
             </li>
             <li class="nav-item">
-                <form class="form-inline">
-                    <div class="input-group">
-                        <input
-                                type="text"
-                                class="form-control"
-                                placeholder="Cerca prodotti"
-                        />
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button">
-                                Cerca
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="carrello.html">Carrello</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="loginutente">Login</a>
+                <a class="nav-link" href="login.html">Login</a>
             </li>
         </ul>
     </div>
 </nav>
-<!-- Prodotti in Evidenza -->
+
+<!-- Sezione Prodotti in Evidenza -->
 <section class="container-fluid home-section">
-    <section class="container margine-top-4">
+    <div class="container margine-top-4">
         <h2 class="text-center margine-bottom-4">Prodotti in Evidenza</h2>
         <div class="row">
-        <div th:each="playset:${playsets}" class="col-md-4">
-            <div class="card mx-auto">
-                <img th:src="@{playset.immagine}" class="card-img-top" alt="Immagine Prodotto">
-                <div class="card-body">
-                    <h5 th:text="${playset.nome}"class="card-title">Prodotto 1</h5>
-                    <p th:text="${playset.eta}"class="card-text">Descrizione del Prodotto 1.</p>
-                    <p th:text="${playset.prezzo}" class="card-text">$19.99</p>
-
-                    <!-- Pulsante per aprire la finestra modale -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dettaglioProdottoModal">
-                        Dettagli
-                    </button>
-
-                    <!-- Pulsante per aggiungere al carrello -->
-                    <button type="button" class="btn btn-success" onclick="aggiungiAlCarrello()">
-                        Aggiungi al Carrello
-                    </button>
-                </div>
-            </div>
-        </div>
-        </div>
-        <!-- Finestra Modale per i Dettagli del Prodotto -->
-        <div class="modal fade" id="dettaglioProdottoModal" tabindex="-1" role="dialog" aria-labelledby="dettaglioProdottoModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="dettaglioProdottoModalLabel">Dettagli del Prodotto</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Contenuto dettagliato del prodotto qui -->
-                        <p>Descrizione dettagliata del Prodotto 1...</p>
-                        <p>Prezzo: $19.99</p>
-                        <!-- Aggiungi ulteriori dettagli del prodotto se necessario -->
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+            <!-- Prima Card -->
+            <div class="col-md-4">
+                <div th:each="playset:${playsets}" class="card">
+                    <img  th:src="@{playset.immagine}" class="card-img-top" alt="Immagine Prodotto">
+                    <div class="card-body">
+                        <h5 th:text="${playset.nome}" class="card-title">Prodotto 1</h5>
+                        <p th:text="${playset.eta}" class="card-text">Descrizione del Prodotto 1.</p>
+                        <p th:text="${playset.prezzo}" class="card-text">$19.99</p>
+                        <button type="button" class="btn btn-primary" onclick="window.location.href='dettaglioProdotto.html'">Dettagli</button>
+                        <button type="button" class="btn btn-success" onclick="aggiungiAlCarrello()">Aggiungi al Carrello</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Pulsante Catalogo -->
-    <div class="text-center margine-top-4 margine-bottom-4">
-        <a href="catalogo.html" class="btn btn-primary btn-lg">Catalogo</a>
+        </div> <!-- Chiude la classe "row" -->
     </div>
+</section>
 
-    <!-- Sezione Chi Siamo -->
-    <br>
-    <section class="container margine-top-4 margine-bottom-4">
-        <h2 class="text-center margine-bottom-4">Chi Siamo</h2>
-        <p>
-            Benvenuti nel nostro negozio online! Siamo appassionati di fornire
-            prodotti di alta qualità e un'esperienza di shopping eccezionale ai
-            nostri clienti. Esplora la nostra vasta selezione di prodotti e trova
-            esattamente quello che stai cercando.
-        </p>
-    </section>
+<!-- Pulsante Catalogo -->
+<div class="text-center margine-top-4 margine-bottom-4">
+    <a href="catalogo.html" class="btn btn-primary btn-lg">Catalogo</a>
+</div>
+
+<!-- Sezione Chi Siamo -->
+<br>
+<section class="container margine-top-4 margine-bottom-4">
+    <h2 class="text-center margine-bottom-4">Chi Siamo</h2>
+    <p>
+        Benvenuti nel nostro negozio online! Siamo appassionati di fornire
+        prodotti di alta qualità e un'esperienza di shopping eccezionale ai
+        nostri clienti. Esplora la nostra vasta selezione di prodotti e trova
+        esattamente quello che stai cercando.
+    </p>
+</section>
 </section>
 <!-- Footer -->
 <footer class="sfondo-chiaro text-center py-3">
