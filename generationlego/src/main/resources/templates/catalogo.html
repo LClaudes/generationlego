@@ -2,16 +2,15 @@
 <html lang="it"xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Il Mio E-Commerce</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
+
 <!-- Sezione Logo -->
 <div class="container-fluid sfondo-chiaro py-3">
     <div class="container">
@@ -25,7 +24,7 @@
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
-    <h1>Home</h1>
+    <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,17 +34,36 @@
                 <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="riservatautente">Il Mio Profilo</a>
+                <a class="nav-link" href="profilo.html">Il Mio Profilo</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="carrello.html">Carrello</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="loginutente">Login</a>
+                <a class="nav-link" href="login.html">Login</a>
             </li>
         </ul>
     </div>
 </nav>
+
+<!-- Sidebar -->
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <div class="form-group">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="categoria1">
+            <label class="form-check-label" for="categoria1">Categoria 1</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="categoria2">
+            <label class="form-check-label" for="categoria2">Categoria 2</label>
+        </div>
+        <!-- Aggiungi altre checkbox per ulteriori filtri -->
+    </div>
+</div>
+
+
+
 
 <!-- Sezione Prodotti in Evidenza -->
 <section class="container-fluid home-section">
@@ -77,34 +95,13 @@
     </div>
 </section>
 
-<!-- Pulsante Catalogo -->
-<div class="text-center margine-top-4 margine-bottom-4">
-    <a href="catalogo" class="btn btn-primary btn-lg">Catalogo</a>
-
-
-</div>
-
-<!-- Sezione Chi Siamo -->
-<br>
-<section class="container margine-top-4 margine-bottom-4">
-    <h2 class="text-center margine-bottom-4">Chi Siamo</h2>
-    <p>
-        Benvenuti nel nostro negozio online! Siamo appassionati di fornire
-        prodotti di alta qualità e un'esperienza di shopping eccezionale ai
-        nostri clienti. Esplora la nostra vasta selezione di prodotti e trova
-        esattamente quello che stai cercando.
-    </p>
-</section>
-</section>
 <!-- Footer -->
 <footer class="sfondo-chiaro text-center py-3">
     <p>&copy; 2024 Il Mio Negozio E-Commerce</p>
 </footer>
-
-<!-- Dipendenze JavaScript -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
