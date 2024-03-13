@@ -35,13 +35,13 @@
                 <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="profilo.html">Il Mio Profilo</a>
+                <a class="nav-link" th:href="riservatautente">Il Mio Profilo</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="carrello.html">Carrello</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" th:href="loginutente">Login</a>
             </li>
         </ul>
     </div>
@@ -60,7 +60,7 @@
                         <h5 th:text="${playset.nome}" class="card-title">Prodotto 1</h5>
                         <p th:text="${playset.eta}" class="card-text">Descrizione del Prodotto 1.</p>
                         <p th:text="${playset.prezzo}" class="card-text">$19.99</p>
-                        <button type="button" class="btn btn-primary" onclick="window.location.href='dettaglio.html'">Dettagli</button>
+                        <button type="button" class="btn btn-primary" th:onclick="'window.location.href=\'dettaglio?id=' + ${playset.id} + '\''">Dettagli</button>
                         <button type="button" class="btn btn-success" onclick="aggiungiAlCarrello()">Aggiungi al Carrello</button>
                     </div>
                 </div>

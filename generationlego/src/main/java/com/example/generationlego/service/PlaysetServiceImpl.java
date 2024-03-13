@@ -4,6 +4,9 @@ import com.example.generationlego.dao.PlaysetDao;
 import com.example.generationlego.model.Playset;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -138,5 +141,16 @@ public class PlaysetServiceImpl implements PlaysetService{
             return new Object[]{playset,errori};
         else
             return null;
+    }
+
+    @Override
+    public List<Playset> findFirst6Playset() {
+        Pageable first6 = PageRequest.of(0, 6);
+
+        // Usa il metodo findAll del repository con l'oggetto Pageable creato
+        Page<Playset> playsetPage = playsetDao.findAll(first6);
+
+        // Restituisce la lista degli utenti
+        return playsetPage.getContent();
     }
 }
