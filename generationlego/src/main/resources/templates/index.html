@@ -65,7 +65,7 @@
                 <a class="nav-link" href="carrello.html">Carrello</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" th:href="loginutente">Login</a>
             </li>
         </ul>
     </div>
@@ -84,7 +84,7 @@
                     <p th:text="${playset.prezzo}" class="card-text">$19.99</p>
 
                     <!-- Pulsante per aprire la finestra modale -->
-                    <button th:text="${playset.descrizione}"type="button" class="btn btn-primary" data-toggle="modal" data-target="#dettaglioProdottoModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dettaglioProdottoModal">
                         Dettagli
                     </button>
 
