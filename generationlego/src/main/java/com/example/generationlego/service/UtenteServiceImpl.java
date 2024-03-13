@@ -6,8 +6,12 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
 @Service
 public class UtenteServiceImpl implements UtenteService {
+    private LocalDate data2;
     @Autowired
     private UtenteDao utenteDao;
 
@@ -36,4 +40,21 @@ public class UtenteServiceImpl implements UtenteService {
             return true;
         return false;
     }
+
+
+
+    @Override
+    public boolean controlloDifferenzaData(LocalDate data,  int anni) {
+        LocalDate data2 = LocalDate.now();
+        long differenzaAnni = ChronoUnit.YEARS.between(data, data2);
+        if(Math.abs(differenzaAnni) >= anni) {
+            return true;
+        }else {
+            return false;
+        }
+
+
+    }
+
+
 }

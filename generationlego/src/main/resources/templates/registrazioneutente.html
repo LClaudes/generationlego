@@ -22,6 +22,8 @@
     <input type="submit" value="Registrati">
     <br>
     <input type="date" th:field="*{data}" placeholder="scegli data" required>
+    <p th:if="${#fields.hasErrors('data')}" th:errors="*{data}"></p>
+    <p th:if="${dataError}" th:text="${dataError}"></p>
     <br>
 
 </form>

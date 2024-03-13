@@ -33,10 +33,14 @@ public class RegistrazioneUtenteController {
         if(!utenteService.controlloUsername(utente.getUsername())){
             model.addAttribute("duplicato", "Username non disponibile");
             return "registrazioneutente";
+        }if(!utenteService.controlloDifferenzaData(utente.getData(),16)){
+            model.addAttribute("dataError","Per iscriverti devi avere almeno 16 anni");
+            return "registrazioneutente";
         }
         utente.setProfilo("user");
         utenteService.registraUtente(utente);
         return "redirect:/loginutente";
     }
+
 }
 
