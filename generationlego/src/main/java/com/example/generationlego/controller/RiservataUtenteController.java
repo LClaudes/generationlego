@@ -34,6 +34,8 @@ public class RiservataUtenteController
     {
         if(session.getAttribute("utente") == null)
             return "redirect:/loginutente";
+        if(session.getAttribute("isUser") ==null)
+            return "redirect:/";
         Utenti utenti = (Utenti) session.getAttribute("utente");
         model.addAttribute("user", utenti);
         model.addAttribute("carrello", playsetService.getCarrello(session));
