@@ -13,6 +13,9 @@
         <p th:text="${utente.nome}"></p>
         <p th:text="${utente.profilo}"></p>
     </div>
-    <h4 th:if="${ordini == null}">Non hai effettuato ordini</h4>
+    <div th:each="ordini : ${ordini}">
+        <p th:text="${ordini.importo}"></p>
+    </div>
+    <h4 th:if="${ordini.isEmpty()}">Non hai effettuato ordini</h4>
 </body>
 </html>
