@@ -29,7 +29,7 @@ public class UtenteServiceImpl implements UtenteService {
             } else if ("user".equals(utente.getProfilo())) {
                 // Imposta un attributo di sessione per l'utente
                 session.setAttribute("isUser", true);
-                return "redirect:/areariservatautente"; // Oppure il path che preferisci per l'utente
+                return "redirect:/riservatautente"; // Oppure il path che preferisci per l'utente
             }
         }
         return "redirect:/loginutente?errore"; // Oppure il path/view che preferisci in caso di fallimento dell'autenticazione

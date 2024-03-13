@@ -3,6 +3,7 @@ import com.example.generationlego.model.Brand;
 import com.example.generationlego.model.Playset;
 import com.example.generationlego.service.BrandService;
 import com.example.generationlego.service.PlaysetService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,8 +32,15 @@ public class RiservataAdminController
     @GetMapping
     public String getPage(
             Model model,
+            HttpSession session,
             @RequestParam(name = "id", required = false) Integer id)
-    {
+    {   if(session.getAttribute("utente") == null)
+            return "redirect:/loginutente";
+        if(session.getAttribute("isAdmin") == null){
+            session.removeAttribute("utente");
+            return "redirect:/loginutente";
+           }
+        else{
         List<Playset> playset = playsetService.getPlayset();
         List<Brand> brand = brandService.getBrand();
         if(errori == null)
@@ -42,6 +50,7 @@ public class RiservataAdminController
         model.addAttribute("playset", playset);
         model.addAttribute("errori", errori);
         return "riservataadmin";
+        }
     }
 
     @SuppressWarnings("unchecked")
