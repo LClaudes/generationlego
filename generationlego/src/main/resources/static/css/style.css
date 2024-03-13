@@ -7,7 +7,7 @@ body, h1, h2, h3, p, ul, li {
 
 }
 .home-section {
-    background-image: url('/img/sfondo.jpg'); /* Sostituisci 'percorso/immagine-sfondo.jpg' con il percorso dell'immagine di sfondo desiderata */
+    background-image: url('/image/sfondo.jpg'); /* Sostituisci 'percorso/immagine-sfondo.jpg' con il percorso dell'immagine di sfondo desiderata */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
