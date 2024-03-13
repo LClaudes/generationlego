@@ -1,0 +1,194 @@
+/* stili.css */
+
+/* Reset del margine e del padding per garantire una base uniforme */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+
+}
+.home-section {
+    background-image: url('/img/sfondo.jpg'); /* Sostituisci 'percorso/immagine-sfondo.jpg' con il percorso dell'immagine di sfondo desiderata */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: white; /* Cambia il colore del testo se necessario */
+    padding: 50px; /* Aggiungi il padding desiderato per migliorare la leggibilità */
+}
+/* Definizione di colori ispirati a Lego */
+:root {
+    --colore-principale: #4285F4;   /* Blu Lego */
+    --colore-secondario: #EA4335;   /* Rosso Lego */
+    --colore-accentuato: #FBBC05;   /* Giallo Lego */
+    --sfondo: white;              /* Bianco */
+    --colore-testo:white;        /* Nero */
+}
+
+/* Stili di base per il corpo della pagina */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color:var(--sfondo);
+    color: var(--colore-testo);
+}
+
+/* Header e Navbar */
+.container-fluid {
+    background-color:var(--sfondo);
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar {
+    background-color: var(--colore-secondario);
+}
+
+.navbar-nav .nav-link {
+    color: var(--sfondo);
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--colore-accentuato);
+}
+
+/* Prodotti in Evidenza */
+.card {
+    border: 2px solid var(--colore-principale);
+    border-radius: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-body {
+    background-color: var(--sfondo);
+}
+
+.card-title,
+.card-text {
+    color: black;
+}
+
+/* Sezione Categorie */
+#menuCategorie {
+    background-color: var(--colore-principale);
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: var(--sfondo);
+}
+
+/* Sezione Chi Siamo */
+.container.margine-top-4.margine-bottom-4 {
+    background-color: var(--colore-accentuato);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--colore-principale);
+    color: var(--sfondo);
+    padding: 10px 0;
+}
+/* Stili per la barra dei filtri */
+.container.mt-4 {
+
+    border-radius: 8px; /* Angoli arrotondati */
+    border-color: #4285F4;
+}
+
+.input-group .custom-select {
+    border: none; /* Rimuovi il bordo dal campo di selezione personalizzato */
+    background-color: white; /* Sfondo bianco per il campo di selezione */
+    color: black; /* Colore del testo nero */
+}
+
+.input-group-append .btn {
+    border: none; /* Rimuovi il bordo dal pulsante di filtro */
+    background-color: var(--colore-accentuato); /* Colore di sfondo del pulsante di filtro */
+    color: var(--sfondo); /* Colore del testo bianco */
+    border-radius: 0 8px 8px 0; /* Angoli arrotondati solo sul lato destro del pulsante */
+}
+
+.input-group-append .btn:hover {
+    background-color: darken(var(--colore-accentuato), 10%); /* Scurisci leggermente il colore del pulsante al passaggio del mouse */
+}
+
+.navbar-nav {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .navbar-collapse {
+    width: 0; /* Set initial width to 0 */
+    overflow: hidden; /* Hide content outside the navbar */
+    transition: width 0.3s; /* Add transition for smooth animation */
+  }
+
+  .navbar-collapse.show {
+    width: auto; /* Set width to auto to show the navbar */
+  }
+  /*nuovo file*/
+  body {
+    font-family: "Lato", sans-serif;
+  }
+
+  .sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+
+  .openbtn:hover {
+    background-color: #444;
+  }
+
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
+  
