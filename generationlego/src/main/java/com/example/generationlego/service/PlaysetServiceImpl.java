@@ -154,4 +154,10 @@ public class PlaysetServiceImpl implements PlaysetService{
         // Restituisce la lista degli utenti
         return playsetPage.getContent();
     }
+
+    @Override
+    public List<Playset> getByBrand(String nome) {
+        List<Playset> playsetList = playsetDao.findByBrandNome(nome);
+        return playsetList;
+    }
 }

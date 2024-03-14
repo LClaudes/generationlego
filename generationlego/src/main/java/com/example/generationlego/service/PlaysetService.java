@@ -21,4 +21,6 @@ public interface PlaysetService
     Object validaPlayset(Playset playset, String nome, int id_brand, String eta, int numero_pezzi,
                          float prezzo, String descrizione);
     List<Playset> findFirst6Playset();
+
+    List<Playset> getByBrand(String nome);
 }
