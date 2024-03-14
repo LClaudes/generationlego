@@ -95,8 +95,8 @@
                         </div>
                         <div class="card-text">
                             <label for="email">Email:</label>
-                            <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Inserisci l'email" required>
-                            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></p>
+                            <input type="email" th:field="*{mail}" class="form-control" id="email" placeholder="Inserisci l'email" required>
+                            <p th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}" class="text-danger"></p>
                         </div>
                         <div class="card-text">
                             <label for="phone">Numero di Telefono:</label>
