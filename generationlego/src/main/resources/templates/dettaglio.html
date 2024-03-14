@@ -148,12 +148,13 @@
                     Prezzo: $19.99
                 </p>
                 <button
-                        th:href="@{/dettaglio/aggiungi(id=${playset.id})}"
+
                         type="button"
-                        class="btn btn-success"
-                        onclick="aggiungiAlCarrello()"
+                        class="btn btn-success">
+                        <!--onclick="aggiungiAlCarrello()"-->
                 >
-                    Aggiungi al Carrello
+                    <a  th:href="@{/dettaglio/aggiungi(id=${playset.id})}">Aggiungi al carrello</a>
+
                 </button>
                 <p
                         th:if="${result != null}"
