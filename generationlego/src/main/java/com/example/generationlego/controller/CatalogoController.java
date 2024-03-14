@@ -1,6 +1,8 @@
 package com.example.generationlego.controller;
 
+import com.example.generationlego.model.Brand;
 import com.example.generationlego.model.Playset;
+import com.example.generationlego.service.BrandService;
 import com.example.generationlego.service.PlaysetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +18,14 @@ import java.util.List;
 public class CatalogoController {
     @Autowired
     private PlaysetService playsetService;
+    @Autowired
+    private BrandService brandService;
     @GetMapping
     public String getPage(Model model,
                           @RequestParam(name = "nome", required = false) String nome,
                           @RequestParam(name = "eta", required = false) String eta) {
+        List<Brand> brands = brandService.getBrand();
+        model.addAttribute("brands",brands);
         if (nome == null && eta == null) {
             List<Playset> playset = playsetService.getPlayset();
             model.addAttribute("playsets", playset);

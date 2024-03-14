@@ -10,16 +10,13 @@
 
 </head>
 <body>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Disney\''">Disney</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Marvel\''">Marvel</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Architecture\''">Architecture</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Art\''">Art</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Super Mario\''">Super Mario</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Harry Potter\''">Harry Potter</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Star Wars\''">Star Wars</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'City\''">City</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Botanica\''">Botanica</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Technic\''">Technic</button>
+<div type="button" class="btn btn-primary btn-dettagli" th:each="brand: ${brands}">
+    <button type="button" class="btn btn-primary btn-dettagli"
+            th:attr="data-url=@{'catalogo?nome=' + ${brand.nome}}"
+            onclick="window.location.href=this.getAttribute('data-url')">
+        <span th:text="${brand.nome}"></span>
+    </button>
+</div>
 <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '16\''">16+</button>
 <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '18\''">18+</button>
 <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '7\''">7+</button>
