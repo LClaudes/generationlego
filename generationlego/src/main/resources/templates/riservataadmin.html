@@ -21,5 +21,53 @@
         <p th:text="${ordini.importo}"></p>
     </div>
     <h4 th:if="${ordini.isEmpty()}">Non hai effettuato ordini</h4>
+<table>
+    <tr th:each="playset : ${playset}">
+        <td>
+            <!--<img th:src="@{${playset.immagine == null ? 'markerImage.jpg' : playset.immagine}}"
+                 style="max-height:100px;" alt="Immagine playset">-->
+        </td>
+        <td th:text="${playset.nome}"></td>
+        <td th:text="${playset.prezzo}"></td>
+        <td th:text="${playset.brand.nome}"></td>
+        <td th:text="${playset.eta}"></td>
+        <td th:text="${playset.scorte}"></td>
+        <td>
+            <a th:href="@{/riservataadmin(id=${playset.id})}">Modifica</a>
+            <a th:href="@{/riservataadmin/elimina(id=${playset.id})}">Elimina</a>
+        </td>
+    </tr>
+</table>
+<hr>
+<form action="/riservataadmin" method="post" enctype="multipart/form-data">
+    <input type="text" name="nome" th:value="${playset1.nome}" placeholder="Nome Playset" required>
+    <p th:if="${errori != null && errori.containsKey('nome')}" th:text="${errori.get('nome')}"></p>
+    <br>
+    <input type="number" name="prezzo" step="any" th:value="${playset1.prezzo}"
+           placeholder="Prezzo Playset" required>
+    <p th:if="${errori != null && errori.containsKey('prezzo')}" th:text="${errori.get('prezzo')}"></p>
+    <br>
+    <select name="brand">
+        <option th:each="brand : ${brands}" th:text="${brand.nome}"
+                th:value="${brand.id}"
+                th:selected="${playset1.brand != null && playset1.brand.id == brand.id}"></option>
+    </select>
+    <br>
+    <input type="text" name="eta" th:value="${playset1.eta}" placeholder="Eta Playset" required>
+    <p th:if="${errori != null && errori.containsKey('eta')}" th:text="${errori.get('eta')}"></p>
+    <br>
+    <input type="number" name="numero_pezzi" th:value="${playset1.numero_pezzi}" placeholder="Numero di pezzi del Playset" required>
+    <p th:if="${errori != null && errori.containsKey('numero_pezzi')}" th:text="${errori.get('numero_pezzi')}"></p>
+    <br>
+    <input type="text" name="descrizione" th:value="${playset1.descrizione}" placeholder="Descrizione Playset" required>
+    <p th:if="${errori != null && errori.containsKey('descrizione')}" th:text="${errori.get('descrizione')}"></p>
+    <br>
+    <input type="file" name="immagine">
+    <br>
+    <input type="number" name="scorte" th:value="${playset1.scorte}" placeholder="Scorte Playset" required>
+    <p th:if="${errori != null && errori.containsKey('scorte')}" th:text="${errori.get('scorte')}"></p>
+    <br>
+    <input type="submit" value="Registra Playset">
+</form>
 </body>
 </html>

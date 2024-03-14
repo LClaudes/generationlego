@@ -44,6 +44,7 @@ public class RiservataAdminController
             Model model,
             HttpSession session,
             @RequestParam(name = "id", required = false) Integer id)
+           // @RequestParam(name = "id_brand", required = false) Integer idBrand)
     {   if(session.getAttribute("utente") == null)
             return "redirect:/loginutente";
         if(session.getAttribute("isAdmin") == null){
@@ -58,12 +59,15 @@ public class RiservataAdminController
             List<Ordini> ordini = ordineService.getOrdini();
             model.addAttribute("ordini", ordini);
         List<Playset> playset = playsetService.getPlayset();
-        List<Brand> brand = brandService.getBrand();
+        List<Brand> brands = brandService.getBrand();
+            //Brand brand = id == null ? new Brand() : brandService.getBrandById(idBrand);
         if(errori == null)
+
+            model.addAttribute("brands", brands);
            playset1 =  id == null ? new Playset() : playsetService.getPlaysetById(id);
         model.addAttribute("playset", playset);
-        model.addAttribute("brand", brand);
-        model.addAttribute("playset", playset);
+       // model.addAttribute("brand", brand);
+        model.addAttribute("playset1", playset1);
         model.addAttribute("errori", errori);
         return "riservataadmin";
         }
@@ -76,7 +80,7 @@ public class RiservataAdminController
             @RequestParam("prezzo") float prezzo,
             @RequestParam("brand") int id_brand,
             @RequestParam("eta") String eta,
-            @RequestParam("numero pezzi") int numero_pezzi,
+            @RequestParam("numero_pezzi") int numero_pezzi,
             @RequestParam("descrizione") String descrizione,
             @RequestParam(name = "immagine", required = false) MultipartFile immagine,
             @RequestParam("scorte") int scorte
