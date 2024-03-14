@@ -22,14 +22,16 @@
     </div>
     <h4 th:if="${ordini.isEmpty()}">Non hai effettuato ordini</h4>
 <table>
-    <tr th:each="playset : ${playset1}">
+    <tr th:each="playset : ${playset}">
         <td>
-            <img th:src="@{${playset.immagine == null ? 'markerImage.jpg' : playset.immagine}}"
-                 style="max-height:100px;" alt="Immagine playset">
+            <!--<img th:src="@{${playset.immagine == null ? 'markerImage.jpg' : playset.immagine}}"
+                 style="max-height:100px;" alt="Immagine playset">-->
         </td>
-        <td th:text="${playset1.nome}"></td>
-        <td th:text="${playset1.prezzo}"></td>
-        <td th:text="${playset1.brand}"></td>
+        <td th:text="${playset.nome}"></td>
+        <td th:text="${playset.prezzo}"></td>
+        <td th:text="${playset.brand.nome}"></td>
+        <td th:text="${playset.eta}"></td>
+        <td th:text="${playset.scorte}"></td>
         <td>
             <a th:href="@{/riservataadmin(id=${playset.id})}">Modifica</a>
             <a th:href="@{/riservataadmin/elimina(id=${playset.id})}">Elimina</a>

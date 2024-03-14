@@ -43,8 +43,8 @@ public class RiservataAdminController
     public String getPage(
             Model model,
             HttpSession session,
-            @RequestParam(name = "id", required = false) Integer id,
-            @RequestParam(name = "id_brand", required = false) Integer idBrand)
+            @RequestParam(name = "id", required = false) Integer id)
+           // @RequestParam(name = "id_brand", required = false) Integer idBrand)
     {   if(session.getAttribute("utente") == null)
             return "redirect:/loginutente";
         if(session.getAttribute("isAdmin") == null){
@@ -60,13 +60,13 @@ public class RiservataAdminController
             model.addAttribute("ordini", ordini);
         List<Playset> playset = playsetService.getPlayset();
         List<Brand> brands = brandService.getBrand();
-            Brand brand = id == null ? new Brand() : brandService.getBrandById(idBrand);
+            //Brand brand = id == null ? new Brand() : brandService.getBrandById(idBrand);
         if(errori == null)
 
             model.addAttribute("brands", brands);
            playset1 =  id == null ? new Playset() : playsetService.getPlaysetById(id);
         model.addAttribute("playset", playset);
-        model.addAttribute("brand", brand);
+       // model.addAttribute("brand", brand);
         model.addAttribute("playset1", playset1);
         model.addAttribute("errori", errori);
         return "riservataadmin";
