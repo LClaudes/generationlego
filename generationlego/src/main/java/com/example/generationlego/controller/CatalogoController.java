@@ -19,7 +19,7 @@ public class CatalogoController {
     public String getPage(Model model){
         List<Playset> playset = playsetService.getPlayset();
         model.addAttribute("playsets",playset);
-        return "index";
+        return "catalogo";
 
     }
 }

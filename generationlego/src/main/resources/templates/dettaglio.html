@@ -26,7 +26,7 @@
 </div>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
-    <h1>dettaaglio</h1>
+    <h1></h1>
     <button
             class="navbar-toggler"
             type="button"
@@ -41,16 +41,13 @@
     <div class="collapse navbar-collapse" id="menuNavbar">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item attivo">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" th:href="@{/}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="profilo.html">Il Mio Profilo</a>
+                <a class="nav-link" th:href="@{/riservatautente}">Il Mio Profilo</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="carrello.html">Carrello</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" th:href="@{/loginutente}">Login</a>
             </li>
         </ul>
     </div>
@@ -85,7 +82,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img
-                                src="https://via.placeholder.com/800x400"
+                                th:src="@{'image/playset_' + ${playset.id} + '.jpg'}"
                                 class="d-block w-100"
                                 alt="..."
                         />
@@ -142,7 +139,7 @@
                 </p>
                 <p th:text="${playset.brand}" class="margine-bottom-4">brand</p>
                 <p
-                        th:text="${#numbers.formatDecimal(playset.prezzo, 0, 'POINT', 2, 'COMMA')}"
+                        th:text="${#numbers.formatDecimal(playset.prezzo, 0, 'POINT', 2, 'COMMA')} +' €'"
                         class="margine-bottom-4"
                 >
                     Prezzo: $19.99

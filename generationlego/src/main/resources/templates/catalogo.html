@@ -31,16 +31,13 @@
     <div class="collapse navbar-collapse" id="menuNavbar">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item attivo">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" th:href="@{/}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="profilo.html">Il Mio Profilo</a>
+                <a class="nav-link" th:href="@{/riservatautente}">Il Mio Profilo</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="carrello.html">Carrello</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" th:href="@{/loginutente}">Login</a>
             </li>
         </ul>
     </div>
@@ -79,7 +76,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 th:text="${playset.nome}" class="card-title">Prodotto 1</h5>
                         <p th:text="${playset.eta}" class="card-text">Descrizione del Prodotto 1.</p>
-                        <p th:text="${playset.prezzo}" class="card-text">$19.99</p>
+                        <p th:text="${playset.prezzo + ' €'}" class="card-text">$19.99</p>
                         <div class="mt-auto"> <!-- Utilizza mt-auto per spingere il contenuto in basso -->
                             <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'dettaglio?id=' + ${playset.id} + '\''">Dettagli</button>
                             <button type="button" class="btn btn-success" onclick="aggiungiAlCarrello()">Aggiungi al Carrello</button>

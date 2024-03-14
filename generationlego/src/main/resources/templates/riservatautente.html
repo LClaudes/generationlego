@@ -12,7 +12,7 @@
     <table th:if="${carrello != null}">
         <tr th:each="playset : ${carrello}">
             <td th:text="${playset.nome}"></td>
-            <td th:text="${playset.prezzo}"></td>
+            <td th:text="${playset.prezzo} +' €'"></td>
             <td>
                 <a th:href="@{/riservatautente/rimuovi(id=${playset.id})}">
                     Rimuovi Playset
@@ -20,7 +20,7 @@
             </td>
         </tr>
     </table>
-    <h5 th:if="${carrello != null}" th:text="'Totale Carrello ' + ${totale}"></h5>
+    <h5 th:if="${carrello != null}" th:text="'Totale Carrello: ' + ${#numbers.formatDecimal(totale, 0, 'POINT', 2, 'COMMA')} +' €'"></h5>
     <a th:if="${carrello != null}" th:href="@{/riservatautente/invia}">Invia Ordine</a>
     <p th:if="${send}">Ordine Inviato</p>
     <hr>
@@ -46,7 +46,7 @@
     <table>
         <tr th:each="ordine : ${user.ordini}">
             <td th:text="${ordine.data}"></td>
-            <td th:text="${ordine.importo}"></td>
+            <td th:text="${#numbers.formatDecimal(ordine.importo,0,'POINT',2,'COMMA')} +' €'"></td>
             <td>
                 <table>
                     <tr th:each="playset: ${ordine.playset}">
