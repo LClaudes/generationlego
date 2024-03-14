@@ -61,7 +61,7 @@
                         <p th:text="${playset.prezzo} +' €'" class="card-text">$19.99</p>
                         <div class="mt-auto"> <!-- Utilizza mt-auto per spingere il contenuto in basso -->
                             <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'dettaglio?id=' + ${playset.id} + '\''">Dettagli</button>
-                            <button type="button" class="btn btn-success" onclick="aggiungiAlCarrello()">Aggiungi al Carrello</button>
+                            <button type="button" class="btn btn-success" ><a  th:href="@{/aggiungi(id=${playset.id})}">Aggiungi al carrello</a></button>
                         </div>
                     </div>
                 </div>
