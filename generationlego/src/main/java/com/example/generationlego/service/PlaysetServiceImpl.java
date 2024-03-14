@@ -102,6 +102,7 @@ public class PlaysetServiceImpl implements PlaysetService{
         playset.setNumero_pezzi(numero_pezzi);
         playset.setPrezzo(prezzo);
         playset.setDescrizione(descrizione);
+        playset.setScorte(scorte);
         if(immagine != null && !immagine.isEmpty())
         {
             try
