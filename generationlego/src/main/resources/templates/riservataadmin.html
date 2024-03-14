@@ -5,7 +5,11 @@
     <title>Riservata Admin</title>
 </head>
 <body>
-    <div th:each="utente : ${utenti}">
+<a th:href="@{/riservataadmin/logout}">Logout</a>
+<a th:href="@{/}">Torna in Home Page</a>
+
+
+<div th:each="utente : ${utenti}">
         <p th:text="${utente.nome}"></p>
         <p th:text="${utente.profilo}"></p>
     </div>

@@ -32,16 +32,18 @@
     <div class="collapse navbar-collapse" id="menuNavbar">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item attivo">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" th:href="@{/index}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="riservatautente">Il Mio Profilo</a>
+                <a class="nav-link" th:href="@{/riservatautente}">Il Mio Profilo</a>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="@{/carrello}">Carrello</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="carrello.html">Carrello</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="loginutente">Login</a>
+                <a class="nav-link" th:href="@{/loginutente}">Login</a>
             </li>
         </ul>
     </div>
@@ -79,7 +81,7 @@
 
 <!-- Pulsante Catalogo -->
 <div class="text-center margine-top-4 margine-bottom-4">
-    <a href="catalogo" class="btn btn-primary btn-lg">Catalogo</a>
+    <a th:href="@{/catalogo}" class="btn btn-primary btn-lg">Catalogo</a>
 
 
 </div>

@@ -34,6 +34,8 @@ public class RiservataUtenteController
     {
         if(session.getAttribute("utente") == null)
             return "redirect:/loginutente";
+        if(session.getAttribute("isAdmin") != null)
+            return "redirect:/riservataadmin";
         if(session.getAttribute("isUser") ==null)
             return "redirect:/";
         Utenti utenti = (Utenti) session.getAttribute("utente");
@@ -47,6 +49,7 @@ public class RiservataUtenteController
     @GetMapping("/logout")
     public String userLogout(HttpSession session)
     {
+        session.removeAttribute("isUser");
         session.removeAttribute("utente");
         return "redirect:/";
     }

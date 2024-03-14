@@ -103,11 +103,11 @@ public class RiservataAdminController
         playsetService.cancellaPlayset(id);
         return "redirect:/riservataadmin";
     }
-    /*@GetMapping("/visualizzautenti")
-    public String visualizzaUtenti(Model model)
+    @GetMapping("/logout")
+    public String userLogout(HttpSession session)
     {
-        List<Utenti> utenti = utenteService.getUtenti();
-        model.addAttribute("utenti", utenti);
-        return "redirect:/riservataadmin";
-    }*/
+        session.removeAttribute("isAdmin");
+        session.removeAttribute("utente");
+        return "redirect:/";
+    }
 }
