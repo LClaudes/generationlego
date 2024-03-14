@@ -160,4 +160,16 @@ public class PlaysetServiceImpl implements PlaysetService{
         List<Playset> playsetList = playsetDao.findByBrandNome(nome);
         return playsetList;
     }
+
+    @Override
+    public List<Playset> getByEta(String eta) {
+       List<Playset> playset = (List<Playset>) playsetDao.findByEta(eta);
+       return  playset;
+    }
+
+    @Override
+    public List<Playset> getByBrandAndEta(String nome, String eta) {
+        List<Playset> playset = playsetDao.findByBrandNomeAndEta(nome, eta);
+        return playset;
+    }
 }

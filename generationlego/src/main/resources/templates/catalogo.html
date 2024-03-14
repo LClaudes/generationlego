@@ -14,6 +14,18 @@
 <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Marvel\''">Marvel</button>
 <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Architecture\''">Architecture</button>
 <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Art\''">Art</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Super Mario\''">Super Mario</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Harry Potter\''">Harry Potter</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Star Wars\''">Star Wars</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'City\''">City</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Botanica\''">Botanica</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?nome=' + 'Technic\''">Technic</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '16\''">16+</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '18\''">18+</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '7\''">7+</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '10\''">10+</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '9\''">9+</button>
+
 <!-- Sezione Logo -->
 <div class="logo">
     <div class="container">
@@ -75,7 +87,7 @@
                     </div>
                     <div class="card-body d-flex flex-column">
                         <h5 th:text="${playset.nome}" class="card-title">Prodotto 1</h5>
-                        <p th:text="${playset.eta}" class="card-text">Descrizione del Prodotto 1.</p>
+                        <p th:text="${playset.eta} + '+'" class="card-text">Descrizione del Prodotto 1.</p>
                         <p th:text="${playset.prezzo + ' €'}" class="card-text">$19.99</p>
                         <div class="mt-auto"> <!-- Utilizza mt-auto per spingere il contenuto in basso -->
                             <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'dettaglio?id=' + ${playset.id} + '\''">Dettagli</button>

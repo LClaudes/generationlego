@@ -11,4 +11,8 @@ public interface PlaysetDao extends CrudRepository<Playset, Integer>{
     Page<Playset> findAll(Pageable pageable);
 
     List<Playset> findByBrandNome(String nome);
+
+    List<Playset> findByEta(String eta);
+
+    List<Playset> findByBrandNomeAndEta(String nome, String eta);
 }

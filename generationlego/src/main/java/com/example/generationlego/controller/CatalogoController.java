@@ -18,18 +18,32 @@ public class CatalogoController {
     private PlaysetService playsetService;
     @GetMapping
     public String getPage(Model model,
-                          @RequestParam(name = "nome", required = false) String nome){
-        if(nome == null){
-        List<Playset> playset = playsetService.getPlayset();
-        model.addAttribute("playsets",playset);
-        return "catalogo";}
-        else {
-            List<Playset> playset = playsetService.getByBrand(nome);
-            model.addAttribute("playsets",playset);
+                          @RequestParam(name = "nome", required = false) String nome,
+                          @RequestParam(name = "eta", required = false) String eta) {
+        if (nome == null && eta == null) {
+            List<Playset> playset = playsetService.getPlayset();
+            model.addAttribute("playsets", playset);
             return "catalogo";
         }
-
+        if(nome!= null && eta!= null){
+            List<Playset>playset = playsetService.getByBrandAndEta(nome, eta);
+            model.addAttribute("playsets", playset);
+            System.out.println("sono entrato in concatenata"+ playset);
+            return "catalogo";
+        }
+        if (nome != null) {
+            List<Playset> playset = playsetService.getByBrand(nome);
+            model.addAttribute("playsets", playset);
+            return "catalogo";
+        }
+        if (eta != null) {
+            List<Playset> playset = playsetService.getByEta(eta);
+            model.addAttribute("playsets", playset);
+            System.out.println("sono entrato qui dentro"+ playset);
+            return "catalogo";
+        }
+        else{
+            return "catalogo";
+        }
     }
-
-
 }

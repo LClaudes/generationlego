@@ -23,4 +23,7 @@ public interface PlaysetService
     List<Playset> findFirst6Playset();
 
     List<Playset> getByBrand(String nome);
+    List<Playset> getByEta(String eta);
+
+    List<Playset> getByBrandAndEta(String nome, String eta);
 }

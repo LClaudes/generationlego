@@ -1,6 +1,7 @@
 package com.example.generationlego.service;
 
 import com.example.generationlego.dao.UtenteDao;
+import com.example.generationlego.model.Playset;
 import com.example.generationlego.model.Utenti;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,6 +76,8 @@ public class UtenteServiceImpl implements UtenteService {
     public List<Utenti> getByProfilo(String profilo) {
         return (List<Utenti>) utenteDao.findByProfilo(profilo);
     }
+
+
 
 
 }
