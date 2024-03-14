@@ -25,13 +25,12 @@ public class IndexController {
 
     }
     @GetMapping("/aggiungi")
-    public String add(@RequestParam( "id")int id,
-                      HttpSession session){
-        if(!playsetService.aggiungiAlCarrello(id,session))
-            return "redirect:/dettaglio?id=" + id + "&add=n";
-        return "redirect:/dettaglio?id=" + id + "&add=y";
-
+    public String add(@RequestParam("id") int id, HttpSession session) {
+        if (!playsetService.aggiungiAlCarrello(id, session))
+            return "redirect:/?add=n"; // Reindirizza alla stessa pagina con il parametro 'add=n'
+        return "redirect:/?add=y"; // Reindirizza alla stessa pagina con il parametro 'add=y'
     }
+
 
 
 }

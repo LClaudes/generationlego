@@ -33,11 +33,15 @@ public class DettaglioController
     @GetMapping("/aggiungi")
     public String add(
             @RequestParam("id") int id,
-            HttpSession session
+            HttpSession session,
+            Model model
     )
     {
-        if(!playsetService.aggiungiAlCarrello(id,session))
+        if(!playsetService.aggiungiAlCarrello(id,session)){
             return "redirect:/dettaglio?id=" + id + "&add=n";
-        return "redirect:/dettaglio?id=" + id + "&add=y";
+    } else {
+    // Se il prodotto è stato aggiunto con successo al carrello, reindirizza alla pagina dettaglio con parametro 'add=y'
+    return "redirect:/dettaglio?id=" + id + "&add=y";
+}
     }
 }

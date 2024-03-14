@@ -17,7 +17,7 @@ body, h1, h2, h3, p, ul, li {
 /* Stili di base per il corpo della pagina */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: var(--sfondo);
+    background-color: var( --colore-accentuato);
     color: var(--colore-testo);
     margin: 0; /* Aggiunto per evitare spaziature esterne */
     padding: 0; /* Aggiunto per evitare spaziature interne */
@@ -178,3 +178,15 @@ footer {
   .catalogo:hover {
     background-color: #0056b3; /* Cambia il colore al passaggio del mouse */
   }
+.immaginedettaglio {
+  width: 30%; /* Imposta la larghezza al 30% del contenitore */
+  height: auto; /* L'altezza si adatta automaticamente alle proporzioni originali */
+  display: flex; /* Abilita il modello di layout flexbox */
+  justify-content: center; /* Centra l'elemento lungo l'asse principale (orizzontale) */
+  align-items: center; /* Centra l'elemento lungo l'asse trasversale (verticale) */
+}
+.carousel-item {
+  display: flex;
+  justify-content: center; /* Centra l'elemento lungo l'asse principale (orizzontale) */
+  align-items: center; /* Centra l'elemento lungo l'asse trasversale (verticale) */
+}
