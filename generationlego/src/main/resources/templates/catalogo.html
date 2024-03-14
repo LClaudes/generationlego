@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="it"xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Il Mio E-Commerce</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Titolo</title>
+    <!-- Includi i tuoi file CSS qui -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 
 </head>
 <body>
-
 <!-- Sezione Logo -->
-<div class="container-fluid sfondo-chiaro py-3">
+<div class="logo">
     <div class="container">
         <img
                 src="image/logo.png"
@@ -21,7 +20,6 @@
         />
     </div>
 </div>
-
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
     <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
@@ -59,13 +57,11 @@
     </div>
 </div>
 
-
-
-
 <!-- Sezione Prodotti in Evidenza -->
 <section class="container-fluid home-section">
     <div class="container margine-top-4">
         <h2 class="text-center margine-bottom-4">Prodotti in Evidenza</h2>
+        <br>
         <div class="row">
             <!-- Prima Card -->
             <div th:each="playset:${playsets}" class="col-md-4">
@@ -84,10 +80,7 @@
                     </div>
                 </div>
             </div>
-
-
-
-
+            <!-- Altre Cards... -->
         </div> <!-- Chiude la classe "row" -->
     </div>
 </section>
@@ -96,9 +89,20 @@
 <footer class="sfondo-chiaro text-center py-3">
     <p>&copy; 2024 Il Mio Negozio E-Commerce</p>
 </footer>
+
+<!-- Includi i tuoi file JavaScript qui -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+<script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+    }
+</script>
+
 </body>
 </html>

@@ -13,7 +13,7 @@
 </head>
 <body>
 <!-- Sezione Logo -->
-<div class="container-fluid sfondo-chiaro py-3">
+<div class="logo">
     <div class="container">
         <img
                 src="image/logo.png"
@@ -48,6 +48,7 @@
 <section class="container-fluid home-section">
     <div class="container margine-top-4">
         <h2 class="text-center margine-bottom-4">Prodotti in Evidenza</h2>
+        <br>
         <div class="row">
             <!-- Prima Card -->
             <div th:each="playset:${playsets}" class="col-md-4">
@@ -76,7 +77,7 @@
 
 <!-- Pulsante Catalogo -->
 <div class="text-center margine-top-4 margine-bottom-4">
-    <a th:href="@{catalogo}" class="btn btn-primary btn-lg">Catalogo</a>
+    <a th:href="@{catalogo}" class="catalogo">Catalogo</a>
 
 
 </div>
@@ -102,6 +103,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+<script src="../static/js/script.js"></script>
 </body>
 </html>

@@ -4,23 +4,14 @@ body, h1, h2, h3, p, ul, li {
     padding: 0;
 }
 
-.home-section {
-    background-image: url('/image/sfondo.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    color: white;
-    padding: 50px;
-}
 
 /* Definizione di colori ispirati a Lego */
 :root {
     --colore-principale: #4285F4;
-    --colore-secondario: #EA4335;
+    --colore-secondario:black;
     --colore-accentuato: #FBBC05;
-    --sfondo: white;
-    --colore-testo: black;
+    --sfondo: black;
+    --colore-testo: white;
 }
 
 /* Stili di base per il corpo della pagina */
@@ -28,13 +19,21 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: var(--sfondo);
     color: var(--colore-testo);
-}
+    margin: 0; /* Aggiunto per evitare spaziature esterne */
+    padding: 0; /* Aggiunto per evitare spaziature interne */
 
+}
+.logo{
+ background-color: black;
+}
 /* Header e Navbar */
 .container-fluid {
     background-color: var(--sfondo);
     padding: 10px;
     text-align: center;
+     background-image: url('/image/sfondo.png');
+      background-color: var(--colore-secondario);
+            background-size: cover;
 }
 
 .navbar {
@@ -42,7 +41,7 @@ body {
 }
 
 .navbar-nav .nav-link {
-    color: var(--sfondo);
+    color: var(--colore-testo);
 }
 
 .navbar-nav .nav-link:hover {
@@ -51,11 +50,10 @@ body {
 
 /* Prodotti in Evidenza */
 .custom-card {
-    height: 90%; /* Altezza fissa per tutte le card */
     border: 1px solid var(--colore-principale);
     border-radius: 10px;
     margin-bottom: 20px;
-    background-color:var(--sfondo);
+    background-color:white;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -66,16 +64,16 @@ body {
 }
 
 .custom-card .image-container {
-    flex: 20; /* Fai espandere il contenitore dell'immagine per riempire lo spazio disponibile */
-    overflow: hidden; /* Nasconde eventuali parti dell'immagine che eccedono il contenitore */
+    flex: 1; /* Modificato da 20 a 1 */
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .custom-card .image-container img {
-    width: 90%; /* Fai espandere l'immagine per riempire il contenitore */
-    height: auto; /* Imposta l'altezza automatica per mantenere le proporzioni originali */
-    object-fit: cover; /* Scala e ritaglia l'immagine per adattarla al contenitore */
-    border-top-left-radius: 10px; /* Angoli arrotondati per l'immagine */
-    border-top-right-radius: 10px;
+    width: 100%;
+    height: 200px; /* Altezza fissa per tutte le immagini */
+    object-fit: cover;
 }
 
 .custom-card .card-body {
@@ -85,26 +83,19 @@ body {
 .card-title {
     font-size: 18px;
     margin-bottom: 10px;
-   color:black;
+    color: black;
 }
 
 .card-text {
     font-size: 14px;
-    color:black;
+    color: black;
 }
 
 .custom-card .btn {
     border-radius: 20px;
     padding: 8px 20px;
     font-size: 14px;
-    margin-top: 10px;
-}
-
-/* Sezione Chi Siamo */
-.container.margine-top-4.margine-bottom-4 {
-    background-color: var(--colore-accentuato);
-    padding: 20px;
-    border-radius: 8px;
+    margin-top: auto;
 }
 
 /* Footer */
@@ -112,4 +103,78 @@ footer {
     background-color: var(--colore-principale);
     color: var(--sfondo);
     padding: 10px 0;
+    clear: both;
+    position: relative;
 }
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+ .catalogo {
+    display: inline-block;
+    padding: 25px 70px;
+    background-color: #007bff; /* Colore di sfondo */
+    color: #fff; /* Colore del testo */
+    text-decoration: none; /* Rimuovi il sottolineato */
+    border-radius: 5px; /* Angoli arrotondati */
+    transition: background-color 0.3s ease; /* Effetto di transizione */
+  }
+
+  .catalogo:hover {
+    background-color: #0056b3; /* Cambia il colore al passaggio del mouse */
+  }
