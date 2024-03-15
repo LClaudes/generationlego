@@ -10,23 +10,6 @@
 
 </head>
 <body>
-<div type="button" class="btn btn-primary btn-dettagli" th:each="brand: ${brands}">
-    <button type="button" class="btn btn-primary btn-dettagli"
-            th:attr="data-url=@{'catalogo?nome=' + ${brand.nome}}"
-            onclick="window.location.href=this.getAttribute('data-url')">
-        <span th:text="${brand.nome}"></span>
-    </button>
-</div>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?prezzo=' + '300\''">300€</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?prezzo=' + '200\''">200€</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?prezzo=' + '100\''">100€</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?prezzo=' + '50\''">50€</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?prezzo=' + '10\''">10€</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '16\''">16+</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '18\''">18+</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '7\''">7+</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '10\''">10+</button>
-<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '9\''">9+</button>
 
 <!-- Sezione Logo -->
 <div class="logo">
@@ -41,7 +24,8 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
     <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar"
+            aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menuNavbar">
@@ -63,21 +47,50 @@
 <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <div class="form-group">
-        <div type="button" class="btn btn-primary btn-dettagli" th:each="brand: ${brands}">
-            <button type="button" class="btn btn-primary btn-dettagli"
-                    th:attr="data-url=@{'catalogo?nome=' + ${brand.nome}}"
-                    onclick="window.location.href=this.getAttribute('data-url')">
-                <span th:text="${brand.nome}"></span>
-            </button>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="categoria1">
-            <label class="form-check-label" for="categoria1">Categoria 1</label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="categoria2">
-            <label class="form-check-label" for="categoria2">Categoria 2</label>
-        </div>
+        <h2>Ricerca Prodotti</h2>
+        <form action="/catalogo" method="post" enctype="multipart/form-data">
+            <label>-------------------  Set --------------------- </label><br>
+            <div th:each="brand : ${brands}">
+                <label for="eta_null" th:text="${brand.nome}"></option>>Null</label>
+                <input type="checkbox" id="eta_null" name="nome" th:value="${brand.nome}">
+                <br>
+            </div>
+
+            <label>------------------- Età ---------------------   </label><br>
+            <label for="eta_1">-->  1</label>
+            <input type="checkbox" id="eta_1" name="eta" value="10">
+            <br>
+            <label for="eta_9">-->  9</label>
+            <input type="checkbox" id="eta_9" name="eta" value="9">
+            <br>
+            <label for="eta_10">-->  10</label>
+            <input type="checkbox" id="eta_10" name="eta" value="10">
+            <br>
+            <label for="eta_16">--> 16</label>
+            <input type="checkbox" id="eta_16" name="eta" value="16">
+            <br>
+            <label for="eta_18">--> 18</label>
+            <input type="checkbox" id="eta_18" name="eta" value="18">
+            <br>
+            <label>------------------- Prezzo ---------------- </label><br>
+            <label>--> 10€</label>
+            <input type="checkbox" id="eta_1" name="prezzo" value="10">
+            <br>
+            <label>--> 50€</label>
+            <input  type="checkbox" id="eta_1" name="prezzo" value="50">
+           <br>
+            <label>--> 100€</label>
+            <input input type="checkbox" id="eta_1" name="prezzo" value="100">
+           <br>
+            <label>--> 200€</label>
+            <input input type="checkbox" id="eta_1" name="prezzo" value="200">
+            <br>
+            <label>--> 300€</label>
+            <input input type="checkbox" id="eta_1" name="prezzo" value="300">
+           <br>
+
+            <button type="submit">Cerca</button>
+        </form>
         <!-- Aggiungi altre checkbox per ulteriori filtri -->
     </div>
 </div>
@@ -92,15 +105,20 @@
             <div th:each="playset:${playsets}" class="col-md-4">
                 <div class="card custom-card">
                     <div class="image-container">
-                        <img th:src="@{'image/playset_' + ${playset.id} + '.jpg'}" class="card-img-top" alt="Immagine Prodotto">
+                        <img th:src="@{'image/playset_' + ${playset.id} + '.jpg'}" class="card-img-top"
+                             alt="Immagine Prodotto">
                     </div>
                     <div class="card-body d-flex flex-column">
                         <h5 th:text="${playset.nome}" class="card-title">Prodotto 1</h5>
                         <p th:text="${playset.eta} + '+'" class="card-text">Descrizione del Prodotto 1.</p>
                         <p th:text="${playset.prezzo + ' €'}" class="card-text">$19.99</p>
                         <div class="mt-auto"> <!-- Utilizza mt-auto per spingere il contenuto in basso -->
-                            <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'dettaglio?id=' + ${playset.id} + '\''">Dettagli</button>
-                            <button type="button" class="btn btn-success" onclick="aggiungiAlCarrello()">Aggiungi al Carrello</button>
+                            <button type="button" class="btn btn-primary btn-dettagli"
+                                    th:onclick="'window.location.href=\'dettaglio?id=' + ${playset.id} + '\''">Dettagli
+                            </button>
+                            <button type="button" class="btn btn-success" onclick="aggiungiAlCarrello()">Aggiungi al
+                                Carrello
+                            </button>
                         </div>
                     </div>
                 </div>

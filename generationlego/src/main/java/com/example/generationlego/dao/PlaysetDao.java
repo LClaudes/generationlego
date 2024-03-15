@@ -17,4 +17,10 @@ public interface PlaysetDao extends CrudRepository<Playset, Integer>{
     List<Playset> findByBrandNomeAndEta(String nome, String eta);
 
     List<Playset> findByPrezzoLessThan(float prezzo);
+
+    List<Playset> findByBrandNomeAndEtaAndPrezzoLessThan(String nome, String eta, float prezzo);
+
+    List<Playset> findByEtaAndPrezzoLessThan(String eta, float prezzo);
+
+    List<Playset> findByBrandNomeAndPrezzoLessThan(String nome, float prezzo);
 }
