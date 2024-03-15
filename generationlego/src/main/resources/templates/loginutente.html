@@ -1,21 +1,3 @@
-<!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Login Utente</title>
-</head>
-<body>
-<p th:if="${errore}" style="color:red">Credenziali errate</p>
-<form action="/loginutente" method="post">
-    <input type="text" name="username" placeholder="username" required>
-    <br>
-    <input type="password" name="password" placeholder="password" required>
-    <br>
-    <input type="submit" value="Accedi">
-</form>
-</body>
-</html>
-
 
 
 
@@ -43,7 +25,7 @@
         />
     </div>
 </div>
-///////////////////////////////////////////////////////
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
     <h1>Home</h1>
@@ -67,49 +49,41 @@
 
 <!-- Contenuto del Login -->
 <section class="container-fluid home-section">
-    <section class="container mt-4">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title mb-4">Accedi al Tuo Account</h2>
-                        <form>
-                            <div class="card-text">
-                                <label for="email">Indirizzo Email:</label>
-                                <input
-                                        type="email"
-                                        class="form-control"
-                                        id="email"
-                                        placeholder="Inserisci la tua email"
-                                        required
-                                />
+    <p th:if="${errore}" style="color:red">Credenziali errate</p>
+    <form action="/loginutente" method="post">
+        <section class="container mt-4">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title mb-4">Accedi al Tuo Account</h2>
+                            <form>
+                                <div class="card-text">
+                                    <label >username:</label>
+                                    <input type="text" class="form-control" name="username" placeholder="Inserisci la tua email" required/>
+                                </div>
+                                <div class="card-text">
+                                    <label >password:</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Inserisci la tua password" required/>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">accedi</button>
+                            </form>
+
+                            <div class="text-center mt-3">
+                                <div class="card-text">
+                                <label >non hai un account?</label>
+                                    <a class="nav-link" th:href="@{/registrazioneutente}">registrati</a>
+                                </div>
                             </div>
-                            <div class="card-text">
-                                <label for="password">Password:</label>
-                                <input
-                                        type="password"
-                                        class="form-control"
-                                        id="password"
-                                        placeholder="Inserisci la tua password"
-                                        required
-                                />
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">
-                                Accedi
-                            </button>
-                        </form>
-                        <div class="text-center mt-3">
-                            <p>
-                                Non hai un account?
-                                <a href="registrazione.html">Registrati qui</a>.
-                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </form>
 </section>
+
 <!-- Footer -->
 <footer class="bg-light text-center py-3">
     <p>&copy; 2024 My E-Commerce Store</p>
