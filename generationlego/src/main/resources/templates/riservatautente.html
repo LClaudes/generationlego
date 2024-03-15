@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Riservata Utente</title>
-    <link rel="stylesheet" href="css/styleutente.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
     <a th:href="@{/}">Torna in Home Page</a>
@@ -31,21 +31,59 @@
     <a th:if="${carrello != null}" th:href="@{/riservatautente/invia}">Conferma Ordine</a>
     <p th:if="${send}">Vai al pagamento</p>
     <hr>
+    <h3>Form di modifica dati</h3>
+    <br>
     <form th:object="${user}" method="post">
         <input type="hidden" th:field="*{id}">
         <input type="hidden" th:field="*{profilo}"> <!--IL PROFILO NON PUO' ESSERE NULL-->
+        <div class="card-text">
         <input type="text" th:field="*{nome}" placeholder="inserire nome" required>
         <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+        </div>
         <br>
+
+        <div class="card-text">
         <input type="text" th:field="*{cognome}" placeholder="inserire cognome" required>
         <p th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></p>
+        </div>
         <br>
+
+        <div class="card-text">
         <input type="text" th:field="*{username}" readonly>
+        </div>
         <br>
+
+        <div class="card-text">
         <input type="text" th:field="*{password}" placeholder="scegli password" required
                id="pwd">
         <button type="button" onclick="mostra()">Mostra/Nascondi</button>
         <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+        </div>
+        <br>
+
+        <div class="card-text">
+        <input type="text" th:field="*{via}" placeholder="inserire via">
+        </div>
+        <br>
+        <div class="card-text">
+        <input type="text" th:field="*{citta}" placeholder="inserire citta">
+        </div>
+        <br>
+        <div class="card-text">
+        <input type="text" th:field="*{provincia}" placeholder="inserire provincia">
+        </div>
+        <br>
+        <div class="card-text">
+        <input type="text" th:field="*{cap}" placeholder="inserire cap">
+        </div>
+        <br>
+        <div class="card-text">
+        <input type="text" th:field="*{mail}" placeholder="inserire mail">
+        </div>
+        <br>
+        <div class="card-text">
+        <input type="text" th:field="*{telefono}" placeholder="inserire numero di telefono">
+        </div>
         <br>
         <input type="submit" value="Modifica Dati">
     </form>
@@ -63,6 +101,18 @@
             </td>
         </tr>
     </table>
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            var pwd = document.getElementById("pwd");
+            pwd.type = "password";
+        });
+        function mostra()
+        {
+            if(pwd.type == "password")
+                pwd.type = "text";
+            else
+                pwd.type = "password";
+        }
+    </script>
 </body>
 </html>
