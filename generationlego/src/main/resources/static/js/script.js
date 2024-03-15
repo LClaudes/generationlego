@@ -10,3 +10,12 @@ function openNav() {
 
 function closeNav() {
       document.getElementById("mySidebar").style.width = "0"}
+
+
+// script.js
+
+function aggiungiAlCarrello() {
+    alert("Prodotto aggiunto al carrello!");
+}
+
+

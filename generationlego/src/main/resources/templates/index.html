@@ -21,11 +21,11 @@
                 class="img-fluid"
         />
     </div>
+
 </div>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
-    <h1>Home</h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -63,7 +63,6 @@
                         <div class="mt-auto"> <!-- Utilizza mt-auto per spingere il contenuto in basso -->
                             <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'dettaglio?id=' + ${playset.id} + '\''">Dettagli</button>
                             <a  th:href="@{/dettaglio/aggiungi(id=${playset.id})}" class="btn btn-success" onclick="aggiungiAlCarrello()">Aggiungi al carrello</a>
-
                         </div>
                     </div>
                 </div>
@@ -71,7 +70,7 @@
             <!-- Altre Cards... -->
         </div> <!-- Chiude la classe "row" -->
     </div>
-</section>
+
 
 <!-- Pulsante Catalogo -->
 <div class="text-center margine-top-4 margine-bottom-4">
@@ -95,20 +94,11 @@
 <footer class="sfondo-chiaro text-center py-3">
     <p>&copy; 2024 Il Mio Negozio E-Commerce</p>
 </footer>
-
+</section>
 <!-- Dipendenze JavaScript -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script>
-    <script th:inline="javascript">
-        var urlParams = new URLSearchParams(window.location.search);
-        var resultParam = urlParams.get('add');
-        if (resultParam === 'y') {
-            alert("Prodotto aggiunto al carrello!");
-        } else if (resultParam === 'n') {
-            alert("Prodotto già presente nel carrello!");
-        }
-</script>
+<script th:src="@{js/script.js}"></script>
 </body>
 </html>

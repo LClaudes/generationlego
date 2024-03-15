@@ -15,20 +15,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 </head>
 <body>
-<!-- Sezione Logo -->
-<div class="logo">
-    <div class="container">
-        <img
-                src="image/logo.png"
-                alt="Logo"
-                class="img-fluid"
-        />
-    </div>
-</div>
+
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
-    <h1>Home</h1>
+    <h1>Login</h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -82,18 +73,18 @@
             </div>
         </section>
     </form>
-</section>
 
+</section>
 <!-- Footer -->
-<footer class="bg-light text-center py-3">
-    <p>&copy; 2024 My E-Commerce Store</p>
+<!-- Footer -->
+<footer class="sfondo-chiaro text-center py-3">
+    <p>&copy; 2024 Il Mio Negozio E-Commerce</p>
 </footer>
 
 <!-- JavaScript dependencies -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!-- Collegamento al tuo file di script JavaScript personalizzato -->
-<script src="js/script.js"></script>
+<script th:src="@{js/script.js}"></script>
 </body>
 </html>
