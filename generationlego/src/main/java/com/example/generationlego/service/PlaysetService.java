@@ -26,4 +26,6 @@ public interface PlaysetService
     List<Playset> getByEta(String eta);
 
     List<Playset> getByBrandAndEta(String nome, String eta);
+
+    List<Playset> getByPrice(float prezzo);
 }

@@ -17,6 +17,11 @@
         <span th:text="${brand.nome}"></span>
     </button>
 </div>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?prezzo=' + '300\''">300€</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?prezzo=' + '200\''">200€</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?prezzo=' + '100\''">100€</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?prezzo=' + '50\''">50€</button>
+<button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?prezzo=' + '10\''">10€</button>
 <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '16\''">16+</button>
 <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '18\''">18+</button>
 <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'?eta=' + '7\''">7+</button>
@@ -58,6 +63,13 @@
 <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     <div class="form-group">
+        <div type="button" class="btn btn-primary btn-dettagli" th:each="brand: ${brands}">
+            <button type="button" class="btn btn-primary btn-dettagli"
+                    th:attr="data-url=@{'catalogo?nome=' + ${brand.nome}}"
+                    onclick="window.location.href=this.getAttribute('data-url')">
+                <span th:text="${brand.nome}"></span>
+            </button>
+        </div>
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="categoria1">
             <label class="form-check-label" for="categoria1">Categoria 1</label>

@@ -172,4 +172,10 @@ public class PlaysetServiceImpl implements PlaysetService{
         List<Playset> playset = playsetDao.findByBrandNomeAndEta(nome, eta);
         return playset;
     }
+
+    @Override
+    public List<Playset> getByPrice(float prezzo) {
+        List<Playset> playsetList =  playsetDao.findByPrezzoLessThan(prezzo);
+        return playsetList;
+    }
 }

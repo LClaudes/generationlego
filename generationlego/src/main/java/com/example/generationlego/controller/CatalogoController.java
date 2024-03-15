@@ -23,18 +23,26 @@ public class CatalogoController {
     @GetMapping
     public String getPage(Model model,
                           @RequestParam(name = "nome", required = false) String nome,
-                          @RequestParam(name = "eta", required = false) String eta) {
+                          @RequestParam(name = "eta", required = false) String eta,
+                          @RequestParam(name="prezzo", required = false) Float prezzo) {
         List<Brand> brands = brandService.getBrand();
         model.addAttribute("brands",brands);
-        if (nome == null && eta == null) {
+        if (nome == null && eta == null && prezzo == null) {
             List<Playset> playset = playsetService.getPlayset();
             model.addAttribute("playsets", playset);
+            System.out.println("sono entrato in catalogo");
             return "catalogo";
         }
         if(nome!= null && eta!= null){
             List<Playset>playset = playsetService.getByBrandAndEta(nome, eta);
             model.addAttribute("playsets", playset);
-            System.out.println("sono entrato in concatenata"+ playset);
+            System.out.println("sono entrato in concatenata");
+            return "catalogo";
+        }
+        if(prezzo != null ){
+            List<Playset>playset = playsetService.getByPrice(prezzo);
+            model.addAttribute("playsets", playset);
+            System.out.println("sono entrato in prezzo");
             return "catalogo";
         }
         if (nome != null) {
@@ -45,7 +53,7 @@ public class CatalogoController {
         if (eta != null) {
             List<Playset> playset = playsetService.getByEta(eta);
             model.addAttribute("playsets", playset);
-            System.out.println("sono entrato qui dentro"+ playset);
+            System.out.println("sono entrato qui dentro");
             return "catalogo";
         }
         else{
