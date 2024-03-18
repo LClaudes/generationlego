@@ -59,11 +59,11 @@ left:0px;
 .navbar {
     background-image: url('/image/sfondobanner.png');
     background-color: var(--colore-secondario);
-    text-color:white;
+    text-color:black;
 }
 
 .navbar-nav .nav-link {
-    color:white;
+    color:black;
 }
 
 .navbar-nav .nav-link:hover {
