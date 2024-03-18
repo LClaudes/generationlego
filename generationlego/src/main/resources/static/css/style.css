@@ -17,10 +17,18 @@ body, h1, h2, h3, p, ul, li {
 /* Stili di base per il corpo della pagina */
 body {
     font-family: 'Arial', sans-serif;
+    background-image:url('/image/sfondo.jpg');
+    background-size: cover;
     background-color: var( --colore-accentuato);
     color: var(--colore-testo);
     margin: 0; /* Aggiunto per evitare spaziature esterne */
     padding: 0; /* Aggiunto per evitare spaziature interne */
+
+}
+.catalogobody{
+    background-image:url('/image/SFONDO8.png');
+    background-size: contain;
+    background-repeat: repeat-y;
 
 }
 .logo{
@@ -28,18 +36,28 @@ body {
 }
 /* Header e Navbar */
 .container-fluid {
-    background-color: var(--sfondo);
     padding: 10px;
     text-align: center;
-     background-image: url('/image/sfondo.jpg');
-      background-color: var(--colore-secondario);
-            background-size: cover;
 }
+.imgzi{
+margin-left:47%;
+width:7%;}
 .sideimpl{
 background-color: white;
 padding-left: 10%;
 }
+.bottom{
+position:absolute;
+bottom:0px;
+right:0px;
+}
+.bottom-sx{
+position:absolute;
+bottom:0px;
+left:0px;
+}
 .navbar {
+    background-image: url('/image/sfondobanner.png');
     background-color: var(--colore-secondario);
     text-color:white;
 }
@@ -123,6 +141,7 @@ footer {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    background-image: url('/image/SFONDO1.jpg');
 }
 
 .sidebar a {
@@ -196,6 +215,7 @@ footer {
   }
   /* Stile per il contenitore del carousel */
   .home-section .container {
+
       padding-left: 0;
       padding-right: 0;
   }
@@ -203,8 +223,4 @@ footer {
 
 .col-md-12{
 background-color:white;
-}
-
-.contenitore{
-background color:white;
 }
