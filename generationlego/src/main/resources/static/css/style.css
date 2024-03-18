@@ -35,7 +35,10 @@ body {
       background-color: var(--colore-secondario);
             background-size: cover;
 }
-
+.sideimpl{
+background-color: white;
+padding-left: 10%;
+}
 .navbar {
     background-color: var(--colore-secondario);
     text-color:white;

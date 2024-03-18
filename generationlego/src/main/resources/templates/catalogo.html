@@ -42,19 +42,18 @@
 </nav>
 
 <!-- Sidebar -->
-<div id="mySidebar" class="sidebar">
+<div id="mySidebar" class="sidebar ">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <div class="form-group">
+    <div class="form-group  sideimpl">
         <h2>Ricerca Prodotti</h2>
         <form action="/catalogo" method="post" enctype="multipart/form-data">
-            <label>-------------------  Set --------------------- </label><br>
+            <label>Filtra per  Set:</label><br>
             <div th:each="brand : ${brands}">
                 <label for="eta_null" th:text="${brand.nome}"></option>>Null</label>
                 <input type="checkbox" id="eta_null" name="nome" th:value="${brand.nome}">
                 <br>
             </div>
-
-            <label>------------------- Età ---------------------   </label><br>
+            <label>Filtra per Età:   </label><br>
             <label for="eta_1">-->  1</label>
             <input type="checkbox" id="eta_1" name="eta" value="10">
             <br>
@@ -70,7 +69,7 @@
             <label for="eta_18">--> 18</label>
             <input type="checkbox" id="eta_18" name="eta" value="18">
             <br>
-            <label>------------------- Prezzo ---------------- </label><br>
+            <label>Filtra per Prezzo: </label><br>
             <label>--> 10€</label>
             <input type="checkbox" id="eta_1" name="prezzo" value="10">
             <br>
