@@ -19,7 +19,7 @@ body {
     font-family: 'Arial', sans-serif;
     background-image:url('/image/sfondo.jpg');
     background-size: cover;
-    background-color: var( --colore-accentuato);
+    background-color: white;
     color: var(--colore-testo);
     margin: 0; /* Aggiunto per evitare spaziature esterne */
     padding: 0; /* Aggiunto per evitare spaziature interne */
@@ -27,7 +27,7 @@ body {
 }
 .catalogobody{
     background-image:url('/image/SFONDO8.png');
-    background-size: contain;
+    background-size: 100%;
     background-repeat: repeat-y;
 
 }
