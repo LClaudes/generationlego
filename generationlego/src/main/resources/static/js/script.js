@@ -11,7 +11,9 @@ function openNav() {
 function closeNav() {
       document.getElementById("mySidebar").style.width = "0"}
 
-
+function goToHomePage() {
+        window.location.href = '/';
+    }
 // script.js
 
 function aggiungiAlCarrello() {

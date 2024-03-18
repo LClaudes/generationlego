@@ -21,11 +21,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menuNavbar">
-        <img
-                src="image/minilogo.png"
-                alt="Logo"
-                class="img-fluid imgzi"
-        />
+        <img src="image/minilogo.png" alt="Logo" class="img-fluid imgzi" onclick="goToHomePage()" style="cursor: pointer;"/>
     </div>
         <ul class="navbar-nav ml-auto bottom">
             <li class="nav-item attivo">
@@ -126,6 +122,7 @@
 </footer>
 
 <!-- Includi i tuoi file JavaScript qui -->
+<script th:src="@{js/script.js}"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -138,6 +135,7 @@
       document.getElementById("mySidebar").style.width = "0";
     }
 </script>
+
 
 </body>
 </html>
