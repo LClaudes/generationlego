@@ -179,18 +179,25 @@ footer {
   .catalogo:hover {
     background-color: #0056b3; /* Cambia il colore al passaggio del mouse */
   }
-.immaginedettaglio {
-  width: 30%; /* Imposta la larghezza al 30% del contenitore */
-  height: auto; /* L'altezza si adatta automaticamente alle proporzioni originali */
-  display: flex; /* Abilita il modello di layout flexbox */
-  justify-content: center; /* Centra l'elemento lungo l'asse principale (orizzontale) */
-  align-items: center; /* Centra l'elemento lungo l'asse trasversale (verticale) */
-}
-.carousel-item {
-  display: flex;
-  justify-content: center; /* Centra l'elemento lungo l'asse principale (orizzontale) */
-  align-items: center; /* Centra l'elemento lungo l'asse trasversale (verticale) */
-}
+  .carousel-inner {
+      width: 800px;
+      height: 400px;
+
+  }
+
+  /* Stile per le immagini delle slide */
+  .immagine-carosello{
+    height:400px;
+    width:auto;
+
+  }
+  /* Stile per il contenitore del carousel */
+  .home-section .container {
+      padding-left: 0;
+      padding-right: 0;
+  }
+
+
 .col-md-12{
 background-color:white;
 }
