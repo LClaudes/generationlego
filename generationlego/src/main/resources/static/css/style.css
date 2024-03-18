@@ -72,9 +72,9 @@ body {
 }
 
 .custom-card .image-container img {
-    width: 200px;
-    height: 200px; /* Altezza fissa per tutte le immagini */
-    object-fit: cover;
+    width: 300px;
+    height: 300px; /* Altezza fissa per tutte le immagini */
+    object-fit: contain;
 }
 
 .custom-card .card-body {
