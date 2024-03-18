@@ -51,20 +51,22 @@
             <!-- Prima Card -->
             <div th:each="playset:${playsets}" class="col-md-4">
                 <div class="card custom-card">
-                    <div class="image-container">
-                        <img th:src="@{'image/playset_' + ${playset.id} + '.jpg'}" class="card-img-top" alt="Immagine Prodotto">
+                    <!-- Modifica qui aggiungendo l'evento onclick sull'immagine -->
+                    <div class="image-container" th:onclick="'window.location.href=\'/dettaglio?id=' + ${playset.id} + '\''">
+                    <img th:src="@{'image/playset_' + ${playset.id} + '.jpg'}" class="card-img-top" alt="Immagine Prodotto">
                     </div>
                     <div class="card-body d-flex flex-column">
                         <h5 th:text="${playset.nome}" class="card-title">Prodotto 1</h5>
                         <p th:text="${playset.eta}" class="card-text">Descrizione del Prodotto 1.</p>
                         <p th:text="${playset.prezzo + ' €'}" class="card-text">$19.99</p>
                         <div class="mt-auto"> <!-- Utilizza mt-auto per spingere il contenuto in basso -->
-                            <button type="button" class="btn btn-primary btn-dettagli" th:onclick="'window.location.href=\'dettaglio?id=' + ${playset.id} + '\''">Dettagli</button>
-                            <a  th:href="@{/dettaglio/aggiungi(id=${playset.id})}" class="btn btn-success" onclick="aggiungiAlCarrello()">Aggiungi al carrello</a>
+                            <!-- Rimuovi il pulsante Dettagli -->
+                            <a th:href="@{/dettaglio/aggiungi(id=${playset.id})}" class="btn btn-success" onclick="aggiungiAlCarrello()">Aggiungi al carrello</a>
                         </div>
                     </div>
                 </div>
             </div>
+
             <!-- Altre Cards... -->
         </div> <!-- Chiude la classe "row" -->
     </div>
