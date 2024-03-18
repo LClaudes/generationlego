@@ -4,43 +4,36 @@
     <meta charset="UTF-8">
     <title>Riservata Utente</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/styleutente.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 </head>
 <body>
-<!-- Sezione Logo -->
-<div class="logo">
-    <div class="container">
-        <img
-                src="image/logo.png"
-                alt="Logo"
-                class="img-fluid"
-        />
-    </div>
-
-</div>
-
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menuNavbar">
-        <ul class="navbar-nav ml-auto">
+        <img
+                src="image/minilogo.png"
+                alt="Logo"
+                class="img-fluid imgzi"
+        />
+        <ul class="navbar-nav ml-auto bottom">
             <li class="nav-item attivo">
                 <a class="nav-link" th:href="@{/}">Home</a>
             </li>
-
-            <li class="nav-item attivo">
-                <a  class="nav-link" th:href="@{/riservatautente/logout}">Logout</a>
+            <li class="nav-item">
+                <a  class="nav-link" th:href="@{/riservataadmin/logout}">Logout</a>
             </li>
         </ul>
     </div>
 </nav>
-
-
+<br>
+<section class="background">
+        <div class="cart-container">
     <h1 th:text="${user.username} + ' Questa è la tua area riservata'"></h1>
-    <h4 th:if="${carrello == null}">Non hai un carrello</h4>
+            <br>
+    <h4 th:if="${carrello == null}">Carrello vuoto</h4>
     <table th:if="${carrello != null}">
         <tr th:each="playset : ${carrello}">
             <td th:text="${playset.nome}"></td>
@@ -61,6 +54,8 @@
     <br>
     <a th:if="${carrello != null}" th:href="@{/riservatautente/invia}">Conferma Ordine</a>
     <p th:if="${send}">Vai al pagamento</p>
+        </div>
+<div class="form-container">
     <hr>
     <h3>Form di modifica dati</h3>
     <br>
@@ -118,6 +113,7 @@
         <br>
         <input type="submit" value="Modifica Dati">
     </form>
+</div>
     <hr>
     <table>
         <tr th:each="ordine : ${user.ordini}">
@@ -145,5 +141,9 @@
                 pwd.type = "password";
         }
     </script>
+</section>
+<footer class="sfondo-chiaro text-center py-3">
+    <p>&copy; 2024 Il Mio Negozio E-Commerce</p>
+</footer>
 </body>
 </html>

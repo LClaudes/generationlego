@@ -3,24 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Riservata Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/styleadmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 </head>
 <body>
-<a th:href="@{/riservataadmin/logout}">Logout</a>
-<a th:href="@{/}">Torna in Home Page</a>
+<nav class="navbar navbar-expand-lg">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menuNavbar">
+        <img
+                src="image/minilogo.png"
+                alt="Logo"
+                class="img-fluid imgzi"
+        />
+        <ul class="navbar-nav ml-auto bottom">
+            <li class="nav-item attivo">
+                <a class="nav-link" th:href="@{/}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a  class="nav-link" th:href="@{/riservataadmin/logout}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
 
-
-<div th:each="utente : ${utenti}">
-        <p th:text="${utente.nome}"></p>
-        <p th:text="${utente.profilo}"></p>
-    </div>
-    <div th:each="utente : ${utenti2}">
-        <p th:text="${utente.nome}"></p>
-        <p th:text="${utente.profilo}"></p>
-    </div>
-    <div th:each="ordini : ${ordini}">
-        <p th:text="${ordini.importo}"></p>
-    </div>
+<table>
+    <h4>Lista degli utenti e totale degli ordini:</h4>
+    <tr th:each="utente : ${utenti2}">
+        <td th:text="${utente.nome}"></td>
+        <td th:text="${utente.cognome}"></td>
+        <td th:text="${utente.username}"></td>
+        <td th:text="${utente.mail}"></td>
+        <td th:text="${utente.telefono}"></td>
+        <td th:text="${utente.profilo}"></td>
+    </tr>
+    <tr th:each="ordini : ${ordini}">
+        <td th:if="${ordini != null}"  th:text="'Totale Ordini: ' + ${#numbers.formatDecimal(ordini.importo, 0, 'POINT', 2, 'COMMA')} +' €'"></td>
+    </tr>
     <h4 th:if="${ordini.isEmpty()}">Non hai effettuato ordini</h4>
+
+</table>
+<h4>Lista dei Playset:</h4>
 <table>
     <tr th:each="playset : ${playset}">
         <td>
@@ -38,7 +65,7 @@
         </td>
     </tr>
 </table>
-<hr>
+<h4>Inserisci un Playset:</h4>
 <form action="/riservataadmin" method="post" enctype="multipart/form-data">
     <input type="text" name="nome" th:value="${playset1.nome}" placeholder="Nome Playset" required>
     <p th:if="${errori != null && errori.containsKey('nome')}" th:text="${errori.get('nome')}"></p>
