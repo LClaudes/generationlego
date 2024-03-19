@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Il Mio E-Commerce</title>
+    <title>Generation Lego</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
@@ -62,11 +62,13 @@
         </ul>
     </div>
 </nav>
+<br>
 
 <!-- Sezione Prodotti in Evidenza -->
 
     <div class="container margine-top-4">
         <h2 class="text-center margine-bottom-4">Prodotti in Evidenza</h2>
+        <br>
         <div class="row">
             <!-- Prima Card -->
             <div th:each="playset:${playsets}" class="col-md-4">
@@ -94,7 +96,7 @@
     <div class="text-center margine-top-4 margine-bottom-4">
         <a th:href="@{catalogo}" class="catalogo">Catalogo</a>
     </div>
-
+<br>
     <!-- Sezione Chi Siamo -->
     <div class="col-md-12">
 
@@ -106,6 +108,7 @@
             Benvenuti nel nostro negozio online! Siamo appassionati nel fornire prodotti di alta qualità e un'esperienza di shopping eccezionale ai nostri clienti. Esplora la nostra vasta selezione di prodotti e trova esattamente quello che stai cercando.
         </p>
     </div>
+
     <!-- Footer -->
     <footer class="text-center py-3">
         <p>&copy; 2024 Il Mio Negozio E-Commerce</p>

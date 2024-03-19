@@ -13,35 +13,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 </head>
 <body>
-<!-- Sezione Logo -->
-<div class="logo">
-    <div class="container">
-        <img
-                src="image/logo.png"
-                alt="Logo"
-                class="img-fluid"
-        />
-    </div>
-</div>
-
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
-    <h1>Registraziione utente</h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menuNavbar">
         <img src="image/minilogo.png" alt="Logo" class="img-fluid imgzi" onclick="goToHomePage()" style="cursor: pointer;"/>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto bottom">
             <li class="nav-item attivo">
                 <a class="nav-link" th:href="@{/}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/riservatautente}">Il Mio Profilo</a>
+                <a class="nav-link" th:href="@{/registrazioneutente}">registrati</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/loginutente}">Login</a>
-            </li>
+
         </ul>
     </div>
 </nav>
@@ -118,15 +103,16 @@
 </section>
 <!-- Sezione Chi Siamo -->
 <br>
-<section class="container margine-top-4 margine-bottom-4">
-    <h2 class="text-center margine-bottom-4">Chi Siamo</h2>
+<div class="col-md-12">
+
+    <h2 class="text-center margine-bottom-4"  >
+        <a th:href="@{/chisiamo}">Chi Siamo</a>
+    </h2>
+
     <p>
-        Benvenuti nel nostro negozio online! Siamo appassionati di fornire
-        prodotti di alta qualità e un'esperienza di shopping eccezionale ai
-        nostri clienti. Esplora la nostra vasta selezione di prodotti e trova
-        esattamente quello che stai cercando.
+        Benvenuti nel nostro negozio online! Siamo appassionati nel fornire prodotti di alta qualità e un'esperienza di shopping eccezionale ai nostri clienti. Esplora la nostra vasta selezione di prodotti e trova esattamente quello che stai cercando.
     </p>
-</section>
+</div>
 </section>
 <!-- Footer -->
 <footer class="sfondo-chiaro text-center py-3">
