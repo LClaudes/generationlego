@@ -17,8 +17,8 @@ body, h1, h2, h3, p, ul, li {
 /* Stili di base per il corpo della pagina */
 body {
     font-family: 'Arial', sans-serif;
-    background-image:url('/image/sfondo.jpg');
-    background-size: cover;
+    background-image:url('/image/SFONDO8.png');
+    /*background-size: cover;*/
     background-color: white;
     color: var(--colore-testo);
     margin: 0; /* Aggiunto per evitare spaziature esterne */

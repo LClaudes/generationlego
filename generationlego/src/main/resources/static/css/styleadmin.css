@@ -167,3 +167,6 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #45a049; /* Verde più scuro al passaggio del mouse */
 }
+ul.navbar-nav.ml-auto.bottom{
+ background-color:#f8dc4b;
+}
