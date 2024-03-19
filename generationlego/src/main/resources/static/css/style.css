@@ -224,71 +224,61 @@ footer {
 .col-md-12{
 background-color:white;
 }
-/* Stile per la finestra del carrello */
 
-/* Stile per la finestra del carrello */
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-     left: -25px; /* Sposta la finestra del carrello leggermente a sinistra */
-      right: auto; /* Rimuove l'allineamento a destra */
-    z-index: 1000;
-    display: none;
-    padding: 1rem;
-    font-size: 1rem;
-    color: #212529;
-    text-align: center; /* Centra il testo */
-    list-style: none;
-    background-color: #f8dc4b; /* Giallo stile LEGO */
-    border: 1px solid #f7c948; /* Bordo giallo più scuro */
-    border-radius: 0.25rem;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.175);
+.slideshow-container {
+  max-width: 90%;
+  position: relative;
+  margin: auto;
 }
 
-/* Stile per gli elementi all'interno della finestra del carrello */
-.dropdown-menu a {
-    display: block;
-    margin-bottom: 0.5rem; /* Spazio tra gli elementi */
-    padding: 0.5rem 1rem;
-    font-weight: 400;
-    color: #212529;
-    text-align: inherit;
-    white-space: nowrap;
-    background-color: #fff; /* Sfondo bianco per gli elementi */
-    border: 1px solid #ccc; /* Bordo sottile grigio */
-    border-radius: 0.25rem;
-    transition: background-color 0.3s ease; /* Animazione transizione */
+.slide {
+  display: none;
 }
 
-/* Stile per il link "Conferma Ordine" */
-.dropdown-menu a.confirm-order {
-    font-weight: 600;
-    background-color: #28a745; /* Verde per il link "Conferma Ordine" */
-    color: #fff; /* Testo bianco */
-    border: 1px solid #218838; /* Bordo verde più scuro */
+img {
+  width: 50%;
+  height: auto;
+}
+.bg{
+/**background-color:#ffd700;**/
 }
 
-/* Stile per il link "Rimuovi Playset" */
-.dropdown-menu a.remove-playset {
-    color: #dc3545; /* Rosso per il link "Rimuovi Playset" */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.prev{
+left:25%}
+.next {
+  right: 25%;
+  border-radius: 3px 0 0 3px;
 }
 
-/* Animazione per mostrare la finestra del carrello */
-.dropdown-menu.show {
-    display: block;
-    animation: fadeInDown 0.3s ease;
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
 }
 
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translate3d(0, -10px, 0);
-    }
-    to {
-        opacity: 1;
-        transform: none;
-    }
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
-ul.navbar-nav.ml-auto.bottom{
- background-color:#f8dc4b;
+
+.active, .dot:hover {
+  background-color: #717171;
 }
