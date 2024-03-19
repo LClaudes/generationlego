@@ -20,31 +20,24 @@ function aggiungiAlCarrello() {
     alert("Prodotto aggiunto al carrello!");
 }
 
-let slideIndex = 1;
-showSlides(slideIndex);
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  const slides = document.getElementsByClassName("slide");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  slides[slideIndex-1].style.opacity = 1; // Imposta l'opacità a 1 per mostrare la diapositiva
+  setTimeout(showSlides, 4000); // Cambia immagine ogni 2 secondi (2000 millisecondi)
+}
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  const slides = document.getElementsByClassName("slide");
-  const dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
 }
  function openNav() {
       document.getElementById("mySidebar").style.width = "250px";
