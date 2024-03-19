@@ -127,6 +127,8 @@ footer {
     padding: 10px 0;
        width: 100%;
        bottom: 0;
+        position: fixed; /* o "absolute" se preferisci */
+           bottom: 0;
 }
 
 /* Sidebar */
@@ -202,7 +204,7 @@ footer {
     background-color: #0056b3; /* Cambia il colore al passaggio del mouse */
   }
   .carousel-inner {
-      width: 800px;
+
       height: 400px;
 
   }
