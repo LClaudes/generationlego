@@ -29,6 +29,36 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/riservatautente}">Il Mio Profilo</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/carrello}" id="carrelloDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-shopping-cart"></i> Carrello
+                </a>
+                <div class="dropdown-menu" aria-labelledby="carrelloDropdown">
+                    <h4 th:if="${carrello == null}">Carrello vuoto</h4>
+                    <table th:if="${carrello != null}">
+                        <tr th:each="playset : ${carrello}">
+                            <td th:text="${playset.nome}"></td>
+                            <td th:text="${playset.prezzo} +' €'"></td>
+                            <td>
+                                <a th:href="@{/riservatautente/rimuovi(id=${playset.id})}">
+                                    Rimuovi Playset
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                    <h5 th:if="${carrello != null}" th:text="'Totale Carrello: ' + ${#numbers.formatDecimal(totale, 0, 'POINT', 2, 'COMMA')} +' €'"></h5>
+                    <a th:if="${send}" th:href="@{/confermapagamento}">
+                        <button class="paypal-button">
+                            <img th:src="@{'image/paypal' + '.png'}" class="img-fluid" alt="Vai al pagamento">
+                        </button>
+                    </a>
+                    <br>
+                    <a th:if="${carrello != null}" th:href="@{/riservatautente/invia}">Conferma Ordine</a>
+                    <p th:if="${send}">Vai al pagamento</p>
+                    <!-- Contenuto del carrello qui -->
+                    <!-- Puoi usare JavaScript per caricare dinamicamente il contenuto del carrello -->
+                </div>
+            </li>
         </ul>
     </div>
 </nav>

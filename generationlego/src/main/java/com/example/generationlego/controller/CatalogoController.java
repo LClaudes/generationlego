@@ -3,7 +3,9 @@ package com.example.generationlego.controller;
 import com.example.generationlego.model.Brand;
 import com.example.generationlego.model.Playset;
 import com.example.generationlego.service.BrandService;
+import com.example.generationlego.service.OrdineService;
 import com.example.generationlego.service.PlaysetService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,14 +20,21 @@ import java.util.List;
 @RequestMapping("/catalogo")
 public class CatalogoController {
     @Autowired
+    private OrdineService ordineService;
+    @Autowired
     private PlaysetService playsetService;
     @Autowired
     private BrandService brandService;
     @GetMapping
-    public String getPage(Model model,
+    public String getPage( HttpSession session,Model model,
                           @RequestParam(name = "nome", required = false) String nome,
                           @RequestParam(name = "eta", required = false) String eta,
-                          @RequestParam(name="prezzo", required = false) Float prezzo) {
+                          @RequestParam(name="prezzo", required = false) Float prezzo,
+                          @RequestParam(name = "send", required = false) String send) {
+
+        model.addAttribute("carrello", playsetService.getCarrello(session));
+        model.addAttribute("send", send);
+        model.addAttribute("totale", playsetService.getTotaleCarrello(session));
         List<Brand> brands = brandService.getBrand();
         model.addAttribute("brands",brands);
         if(nome == null && eta == null && prezzo == null) {
@@ -104,4 +113,27 @@ public class CatalogoController {
         }
         return "catalogo";
     }
+    @GetMapping("/aggiungi")
+    public String add(@RequestParam("id") int id, HttpSession session) {
+        if (!playsetService.aggiungiAlCarrello(id, session))
+            return "redirect:/?add=n"; // Reindirizza alla stessa pagina con il parametro 'add=n'
+        return "redirect:/?add=y"; // Reindirizza alla stessa pagina con il parametro 'add=y'
+    }
+    @GetMapping("/rimuovi")
+    public String remove(
+            @RequestParam("id") int id,
+            HttpSession session
+    )
+    {
+        playsetService.rimuoviDalCarrello(id, session);
+        return "redirect:/riservatautente";
+    }
+
+    @GetMapping("/invia")
+    public String send(HttpSession session)
+    {
+        ordineService.inviaOrdine(session);
+        return "redirect:/riservatautente?send";
+    }
+
 }

@@ -1,53 +1,64 @@
 <!DOCTYPE html>
-<html lang="it"xmlns:th="http://www.thymeleaf.org">
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>Dettagli Prodotto</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Il Mio E-Commerce</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 </head>
 <body>
-<!-- Sezione Logo -->
-<div class="logo">
-    <div class="container">
-        <img
-                src="image/logo.png"
-                alt="Logo"
-                class="img-fluid"
-        />
-    </div>
-</div>
+Sezione Logo -->
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
-    <h1>Dettaglio Prodotto</h1>
-    <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#menuNavbar"
-            aria-controls="menuNavbar"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="menuNavbar">
-        <img src="image/minilogo.png" alt="Logo" class="img-fluid imgzi" onclick="goToHomePage()" style="cursor: pointer;"/>
-        <ul class="navbar-nav ml-auto">
+        <img
+                src="image/minilogo.png"
+                alt="Logo"
+                class="img-fluid imgzi"
+        />
+        <ul class="navbar-nav ml-auto bottom">
             <li class="nav-item attivo">
                 <a class="nav-link" th:href="@{/}">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/riservatautente}">Il Mio Profilo</a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/carrello}" id="carrelloDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-shopping-cart"></i> Carrello
+                </a>
+                <div class="dropdown-menu" aria-labelledby="carrelloDropdown">
+                    <h4 th:if="${carrello == null}">Carrello vuoto</h4>
+                    <table th:if="${carrello != null}">
+                        <tr th:each="playset : ${carrello}">
+                            <td th:text="${playset.nome}"></td>
+                            <td th:text="${playset.prezzo} +' €'"></td>
+                            <td>
+                                <a th:href="@{/riservatautente/rimuovi(id=${playset.id})}">
+                                    Rimuovi Playset
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                    <h5 th:if="${carrello != null}" th:text="'Totale Carrello: ' + ${#numbers.formatDecimal(totale, 0, 'POINT', 2, 'COMMA')} +' €'"></h5>
+                    <a th:if="${send}" th:href="@{/confermapagamento}">
+                        <button class="paypal-button">
+                            <img th:src="@{'image/paypal' + '.png'}" class="img-fluid" alt="Vai al pagamento">
+                        </button>
+                    </a>
+                    <br>
+                    <a th:if="${carrello != null}" th:href="@{/riservatautente/invia}">Conferma Ordine</a>
+                    <p th:if="${send}">Vai al pagamento</p>
+                    <!-- Contenuto del carrello qui -->
+                    <!-- Puoi usare JavaScript per caricare dinamicamente il contenuto del carrello -->
+                </div>
+            </li>
         </ul>
     </div>
 </nav>
