@@ -195,12 +195,15 @@ footer {
 }
  .catalogo {
     display: inline-block;
-    padding: 25px 70px;
-    background-color: #007bff; /* Colore di sfondo */
+    padding: 30px 70px;
+  background-color: var( --colore-principale);
     color: #fff; /* Colore del testo */
     text-decoration: none; /* Rimuovi il sottolineato */
     border-radius: 5px; /* Angoli arrotondati */
     transition: background-color 0.3s ease; /* Effetto di transizione */
+      position: absolute;
+      bottom: 0px;
+          left: 0px;
   }
 
   .catalogo:hover {
