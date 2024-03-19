@@ -18,8 +18,9 @@ body, h1, h2, h3, p, ul, li {
 body {
     font-family: 'Arial', sans-serif;
     background-image:url('/image/SFONDO8.png');
-    /*background-size: cover;*/
+    background-size: contain;
     background-color: white;
+    background-repeat: repeat-y;
     color: var(--colore-testo);
     margin: 0; /* Aggiunto per evitare spaziature esterne */
     padding: 0; /* Aggiunto per evitare spaziature interne */
@@ -99,6 +100,7 @@ left:0px;
 }
 
 .custom-card .card-body {
+    text-align:center;
     padding: 10px;
 }
 
@@ -109,6 +111,7 @@ left:0px;
 }
 
 .card-text {
+
     font-size: 14px;
     color: black;
 }
@@ -223,9 +226,6 @@ footer {
   }
 
 
-.col-md-12{
-background-color:white;
-}
 /* Stile per la finestra del carrello */
 
 /* Stile per la finestra del carrello */
@@ -294,3 +294,53 @@ background-color:white;
 ul.navbar-nav.ml-auto.bottom{
  background-color:#f8dc4b;
 }
+.prev, .next {
+  cursor: pointer;
+  position: relative;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.prev{
+left:25%}
+.next {
+  right: 25%;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.home-section {
+        margin-bottom: 100px; /* Aggiungi margine inferiore per lasciare spazio al footer */
+    }
+footer {
+    position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color:var(--colore-principale); /* Cambia il colore di sfondo se necessario */
+        text-align: center;
+        }
+/*.active, .dot:hover {
+
+}*/
