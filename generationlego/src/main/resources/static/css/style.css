@@ -125,7 +125,6 @@ footer {
     background-color: var(--colore-principale);
     color: var(--sfondo);
     padding: 10px 0;
-    position: fixed;
        width: 100%;
        bottom: 0;
 }
