@@ -37,10 +37,14 @@ public class CatalogoController {
         model.addAttribute("totale", playsetService.getTotaleCarrello(session));
         List<Brand> brands = brandService.getBrand();
         model.addAttribute("brands",brands);
+        model.addAttribute("nome", nome);
+        if(prezzo != null)
+            model.addAttribute("prezzo", prezzo.toString());
+        model.addAttribute("eta", eta);
         if(nome == null && eta == null && prezzo == null) {
             List<Playset> playsetList = playsetService.getPlayset();
             model.addAttribute("playsets",playsetList);
-            System.out.println("Ciao sono un unico maschione");
+            System.out.println("Ciao sono nel nulla");
             }
         if(nome != null && eta == null && prezzo == null){
             List<Playset> playsetList = playsetService.getByBrand(nome);

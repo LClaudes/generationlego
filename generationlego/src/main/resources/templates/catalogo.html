@@ -73,41 +73,42 @@
             <label>Filtra per  Set:</label><br>
             <div th:each="brand : ${brands}">
                 <label for="eta_null" th:text="${brand.nome}"></option>>Null</label>
-                <input type="checkbox" id="eta_null" name="nome" th:value="${brand.nome}">
+                <input th:checked="${nome== brand.nome} " type="checkbox" id="eta_null" name="nome" th:value="${brand.nome}">
                 <br>
             </div>
             <label>Filtra per Età:   </label><br>
-            <label for="eta_1">-->  1</label>
-            <input type="checkbox" id="eta_1" name="eta" value="10">
+            <label for="eta_1">-->  4</label>
+            <input th:checked="${eta == '4'}" type="checkbox" id="eta_1" name="eta" value="4">
             <br>
             <label for="eta_9">-->  9</label>
-            <input type="checkbox" id="eta_9" name="eta" value="9">
+            <input th:checked="${eta == '9'}"type="checkbox" id="eta_9" name="eta" value="9">
             <br>
             <label for="eta_10">-->  10</label>
-            <input type="checkbox" id="eta_10" name="eta" value="10">
+            <input th:checked="${eta == '10'}"type="checkbox" id="eta_10" name="eta" value="10">
             <br>
             <label for="eta_16">--> 16</label>
-            <input type="checkbox" id="eta_16" name="eta" value="16">
+            <input th:checked="${eta == '16'}"type="checkbox" id="eta_16" name="eta" value="16">
             <br>
             <label for="eta_18">--> 18</label>
-            <input type="checkbox" id="eta_18" name="eta" value="18">
+            <input th:checked="${eta == '18'}"type="checkbox" id="eta_18" name="eta" value="18">
             <br>
             <label>Filtra per Prezzo: </label><br>
             <label>--> 10€</label>
-            <input type="checkbox" id="eta_1" name="prezzo" value="10">
+            <input  th:checked="${prezzo == '10.0'}" type="checkbox" id="eta_1" name="prezzo" value="10" >
             <br>
             <label>--> 50€</label>
-            <input  type="checkbox" id="eta_1" name="prezzo" value="50">
-           <br>
+            <input  th:checked="${prezzo == '50.0'}" type="checkbox" id="eta_1" name="prezzo" value="50">
+            <br>
             <label>--> 100€</label>
-            <input input type="checkbox" id="eta_1" name="prezzo" value="100">
-           <br>
+            <input th:checked="${prezzo == '100.0'}" type="checkbox" id="eta_1" name="prezzo" value="100">
+            <br>
             <label>--> 200€</label>
-            <input input type="checkbox" id="eta_1" name="prezzo" value="200">
+            <input th:checked="${prezzo == '200.0'}" type="checkbox" id="eta_1" name="prezzo" value="200">
             <br>
             <label>--> 300€</label>
-            <input input type="checkbox" id="eta_1" name="prezzo" value="300">
-           <br>
+            <input th:checked="${prezzo == '300'}" type="checkbox" id="eta_1" name="prezzo" value="300">
+            <br>
+
 
             <button type="submit">Cerca</button>
         </form>
@@ -119,7 +120,13 @@
 <section class="container-fluid home-section ">
     <div class="container justify-content-center  margine-top-9 margine-left-12"> <!-- Modifica della classe container in container-fluid -->
         <h2 class="text-center margine-bottom-3 ">Catalogo Prodotti</h2>
+        <h5 th:if="${nome!= null || prezzo!=null || eta!=null }">Filtri Attivi: </h5>
+        <p th:if="${nome!= null}" th:text="${'Brand : ' + nome}"> </p>
+        <p th:if="${prezzo!=null}" th:text="${'Prezzo inferiore a ' + prezzo +'€' }"> </p>
+        <p th:if="${eta!= null}" th:text="${'Età : ' + eta +'+'}"> </p>
         <br>
+        <p th:if="${playsets.isEmpty()}"> LA RICERCA NON HA PRODOTTO RISULTATI :(</p>
+        <img th:if="${playsets.isEmpty()}" src="/image/Error.png" class="img-error">
         <div class="row">
             <!-- Prima Card -->
             <div th:each="playset:${playsets}" class="col-md-4">

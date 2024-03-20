@@ -46,3 +46,5 @@ function plusSlides(n) {
     function closeNav() {
       document.getElementById("mySidebar").style.width = "0";
     }
+
+
