@@ -259,8 +259,8 @@ position: absolute;
 .dropdown-menu {
     position: absolute;
     top: 100%;
-     left: -25px; /* Sposta la finestra del carrello leggermente a sinistra */
-      right: auto; /* Rimuove l'allineamento a destra */
+
+      right:3px; /* Rimuove l'allineamento a destra */
     z-index: 1000;
     display: none;
     padding: 1rem;
