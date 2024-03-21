@@ -81,7 +81,7 @@ left:0px;
 }
 
 .cart-container, .form-container {
-    width: 50%;
+    width: 100%;
     float: left;
     padding: 20px;
     box-sizing: border-box;
