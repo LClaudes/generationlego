@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 12, 2024 alle 17:29
+-- Creato il: Mar 21, 2024 alle 12:04
 -- Versione del server: 10.1.10-MariaDB
 -- Versione PHP: 5.6.15
 
@@ -60,6 +60,14 @@ CREATE TABLE `ordini` (
   `id_utente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `ordini`
+--
+
+INSERT INTO `ordini` (`id`, `data`, `importo`, `id_utente`) VALUES
+(1, '2024-03-19', 99.98999786376953, 2),
+(2, '2024-03-20', 313.95999908447266, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +78,17 @@ CREATE TABLE `ordini_playset` (
   `id_ordine` int(11) NOT NULL,
   `id_playset` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `ordini_playset`
+--
+
+INSERT INTO `ordini_playset` (`id_ordine`, `id_playset`) VALUES
+(1, 1),
+(2, 1),
+(2, 2),
+(2, 3),
+(2, 5);
 
 -- --------------------------------------------------------
 
@@ -142,7 +161,18 @@ CREATE TABLE `utenti` (
 --
 
 INSERT INTO `utenti` (`id`, `nome`, `cognome`, `username`, `password`, `via`, `citta`, `provincia`, `cap`, `mail`, `telefono`, `data_di_nascita`, `profilo`) VALUES
-(1, '', '', 'admin', 'Bello1$', '', '', '', '', '', '', '2024-03-12', 'admin');
+(1, 'SuperAdmin', '', 'admin', 'Bello1$', '', '', '', '', '', '', '2024-03-12', 'admin'),
+(2, 'Claudio', 'Rossi', 'user', 'Bello1$', 'Via Roma 13', 'Siniscola', 'NU', '08029', 'claudiorossi13@gmail.com', '3405631076', NULL, 'user'),
+(4, 'Mario', 'Rossi', 'mario.rossi', 'password1', 'Via Roma 1', 'Roma', 'RM', '00100', 'mario.rossi@example.com', '1234567890', '1990-05-15', 'user'),
+(5, 'Luigi', 'Verdi', 'luigi.verdi', 'password2', 'Via Garibaldi 2', 'Milano', 'MI', '20100', 'luigi.verdi@example.com', '0987654321', '1985-09-22', 'user'),
+(6, 'Paolo', 'Bianchi', 'paolo.bianchi', 'password3', 'Corso Italia 3', 'Napoli', 'NA', '80100', 'paolo.bianchi@example.com', '1122334455', '1982-12-10', 'user'),
+(7, 'Giuseppe', 'Russo', 'giuseppe.russo', 'password4', 'Via Dante 4', 'Palermo', 'PA', '90100', 'giuseppe.russo@example.com', '5544332211', '1978-07-30', 'user'),
+(8, 'Maria', 'Ferrari', 'maria.ferrari', 'password5', 'Corso Vittorio Emanuele 5', 'Torino', 'TO', '10100', 'maria.ferrari@example.com', '6677889900', '1995-03-20', 'user'),
+(9, 'Giovanni', 'Esposito', 'giovanni.esposito', 'password6', 'Via Mazzini 6', 'Bologna', 'BO', '40100', 'giovanni.esposito@example.com', '1122334455', '1998-08-05', 'user'),
+(10, 'Anna', 'Romano', 'anna.romano', 'password7', 'Via Garibaldi 7', 'Firenze', 'FI', '50100', 'anna.romano@example.com', '3344556677', '1989-11-12', 'user'),
+(11, 'Alessandro', 'Gallo', 'alessandro.gallo', 'password8', 'Corso Umberto I 8', 'Bari', 'BA', '70100', 'alessandro.gallo@example.com', '5566778899', '1980-04-25', 'user'),
+(12, 'Laura', 'Conti', 'laura.conti', 'password9', 'Via Leopardi 9', 'Catania', 'CT', '95100', 'laura.conti@example.com', '9988776655', '1993-06-18', 'user'),
+(13, 'Sara', 'Costa', 'sara.costa', 'password10', 'Via Amendola 10', 'Venizia', 'VE', '30100', 'sara.costa@example.com', '1122334455', '1996-09-08', 'user');
 
 --
 -- Indici per le tabelle scaricate
@@ -194,17 +224,17 @@ ALTER TABLE `brand`
 -- AUTO_INCREMENT per la tabella `ordini`
 --
 ALTER TABLE `ordini`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT per la tabella `playset`
 --
 ALTER TABLE `playset`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT per la tabella `utenti`
 --
 ALTER TABLE `utenti`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- Limiti per le tabelle scaricate
 --
@@ -213,7 +243,7 @@ ALTER TABLE `utenti`
 -- Limiti per la tabella `ordini`
 --
 ALTER TABLE `ordini`
-  ADD CONSTRAINT `utente` FOREIGN KEY (`id`) REFERENCES `utenti` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `utente` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `ordini_playset`
